@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python:*)",
+      "Bash(pip install:*)",
+      "Bash(pdflatex:*)",
+      "Bash(where xelatex:*)",
+      "Read(//c/Program Files/**)",
+      "Bash(cmd.exe /c \"where pdflatex xelatex lualatex 2>&1\")",
+      "Bash(pandoc:*)"
+    ]
+  }
+}

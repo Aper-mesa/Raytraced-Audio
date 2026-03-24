@@ -1,0 +1,887 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\begin{document}
+
+\begin{center}
+\textbf{Objective Head-Related Transfer Function Evaluation Metrics for More Consistent Perceptual Assessment}
+\end{center}
+\begin{center}
+by:
+\end{center}
+\begin{center}
+Shanghao Zou
+\end{center}
+\begin{center}
+A Thesis Submitted in Fulfillment of the Requirements for the Degree of
+\end{center}
+\begin{center}
+\textbf{Bachelor of Science}
+\end{center}
+\begin{center}
+in
+\end{center}
+\begin{center}
+\textbf{Computer Science}
+\end{center}
+
+\begin{center}
+Department of Computer Science and Technology Wenzhou-Kean University
+\end{center}
+\begin{center}
+Supervised By: Baha Ihnaini
+\end{center}
+\begin{center}
+©June 2025
+\end{center}
+
+
+
+
+Bachelor or Master of Science (2025)	Wenzhou-Kean University
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+TITLE: & Objective Head-Related Transfer Function Evaluation Metrics for More Consistent Perceptual Assessment \\
+\hline
+AUTHOR: & Shanghao Zou B.Sc., Computer Science Wenzhou-Kean University Wenzhou, China \\
+\hline
+SUPERVISORS: & Dr.  Baha Ihnaini \\
+\hline
+NUMBER OF PAGES: & 33 \\
+\hline
+\end{tabular}
+\end{table}
+
+Computer Science and Technology	Wenzhou, China
+
+\section{Abstract}
+
+An abstract of a dissertation provides a succinct summary of the research work and its contributions. It should include a description of the research topic and objective, a brief overview of the methodology and research process, and a summary of the conclusions and contributions. The abstract must be clear and self-contained, conveying the essential ideas and main contributions without the need to read the entire dissertation.
+
+The abstract should be concise and direct, avoiding terms like ``the first chapter'' or ``the second chapter,'' which suggest it is merely an outline. Instead, it should clearly and independently summarize the research.
+
+Keywords are essential for indexing and should reflect the core information of the dissertation. An abstract may include up to five keywords, separated by semi-colons.
+
+\textbf{Keywords: }Keyword1, Keyword2, Keyword3, Keyword4.
+
+
+
+
+
+
+
+
+\section{Acknowledgements}
+
+For example: I am deeply grateful to my supervisor, Professor ×××, and Associate Professor ×× of the Department of ×××, for their careful guidance and support. Their mentorship has been invaluable and will benefit me throughout my life.
+
+I also extend my heartfelt thanks to Professor ××× for his enthusiastic guidance and assistance during my ×××-month collaborative research in the Department of ××× at the ×××.
+
+My sincere thanks go to Professor ×××, the director of the ××××× Laboratory, and all the teachers and classmates in the laboratory for their unwavering help and support. Lastly, I would like to express my special thanks to the ××× for funding this project.
+
+
+
+
+
+
+\section{Contents}
+
+\textbf{Abstract}\textbf{	}\textbf{iii}
+
+\textbf{Acknowledgements}\textbf{	}\textbf{iv}
+
+\textbf{List of Figures}\textbf{	}\textbf{vii}
+
+\textbf{List of Tables}\textbf{	}\textbf{viii}
+
+\textbf{Definition of Acronyms}\textbf{	}\textbf{ix}
+
+\textbf{Definition of Notations}\textbf{	}\textbf{x}
+
+\textbf{Introduction}\textbf{	}\textbf{                                                                                                                     }\textbf{1}
+
+Overview of Spatial Audio and HRTF. . . . . . . . . . . . . . .	                                                  2
+
+Motivation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                                              	           2
+
+Problem Statement . . . . . . . . . . . . . . . . . . . . . . . . . . . .	                                                  2
+
+Objectives and Scope . . . . . . . . . . . . . . . . . . . . . . . . . . .	                                                  2
+
+Thesis Structure	. . . . . . . . . . . . . . . . . . . . . . . . . . . . .	                                                  3
+
+\textbf{Literature Review}\textbf{	}\textbf{                                                                                                                     }\textbf{9}
+
+Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .	                                                10
+
+Previous Work	. . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                                           	        10
+
+Research Gaps	. . . . . . . . . . . . . . . . . . . . . . . . . . . . . .	                                                11
+
+Summary	. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .	                                   11
+
+\textbf{Methodology and Theory of Work}\textbf{	}\textbf{                                                                           }\textbf{12}
+
+Examples of Algorithms and Equations . . . . . . . . . . . . . . . . .                              	        12
+
+\textbf{Implementation, Results, and Discussion}\textbf{                                            }\textbf{	}\textbf{                     14}
+
+\subsection{5     Conclusion and Future Work	15}
+
+	       5.1      Conclusion and Implications . . . . . . . . . . . . . . . . . . . . . . .	15
+
+	5.2	Future Work	. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .	15
+
+\textbf{Bibliography}\textbf{	}\textbf{16}
+
+\textbf{References}\textbf{	}\textbf{16}
+
+
+
+
+
+
+
+
+
+
+\section{List of Figures}
+
+	1.1	Example figure for a master's thesis . . . . . . . . . . . . . . . . . . .	3
+
+	1.2	Example figure for a bachelor's thesis . . . . . . . . . . . . . . . . . .	4
+
+\section{List of Tables}
+
+	1.1	Example Table with Notes for Graduate Students . . . . . . . . . . .	5
+
+	1.2	Example Table with Notes for Undergraduate Students . . . . . . . .	6
+
+\section{Definition of Acronyms}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Acronym} & \textbf{Definition} \\
+\hline
+CPU & Central Processing Unit \\
+\hline
+GPU & Graphics Processing Unit \\
+\hline
+RAM & Random Access Memory \\
+\hline
+ROM & Read-Only Memory \\
+\hline
+API & Application Programming Interface \\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+
+
+
+
+
+\section{Definition of Notations}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Symbol} & \textbf{Meaning} \\
+\hline
+\textit{n} & Number of elements \\
+\hline
+\textit{x} & A variable or data point \\
+\hline
+\textit{µ} & Mean (average) \\
+\hline
+\textit{σ} & Standard deviation \\
+\hline
+P & Summation \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\textbf{Chapter 1}
+
+\section{Introduction}
+
+\subsection{Overview of Spatial Audio and HRTF}
+
+The fundamental goal of virtual auditory display (VAD) and spatial audio systems is to generate a perceptually realistic and immersive three-dimensional auditory experience [1]. The enabling technology for this simulation, particularly over headphones, is the Head-Related Transfer Function (HRTF). The HRTF is a complex, high-dimensional filter that describes the acoustic transformations (diffraction, reflection, and shadowing) imposed by an individual's unique anatomy---primarily the torso, head, and pinnae---on a sound wave before it reaches the eardrum [1].
+
+The profound challenge in spatial audio rendering lies in the high degree of personalization these cues require. HRTFs are highly idiosyncratic; using a non-individualized (or "generic") HRTF, such as one measured on a manikin, has been shown to degrade the spatial experience, leading to localization errors (especially in elevation), front-back confusion, and a failure of externalization, where sound is perceived as being "inside the head" [1]. This has established a critical need for methods to select, personalize, or process HRTFs to better match a given listener [3].
+
+This need for selection and processing, in turn, necessitates a reliable method of evaluation. How is an "appropriate" or "high-quality" HRTF defined? The field has bifurcated into two distinct evaluation paradigms:
+
+\textbf{Subjective Assessment (The "Ground Truth"):} This paradigm relies on human listeners to evaluate the perceptual quality of a binaural rendering. As the "ground truth," these methods are perceptually valid but are notoriously time-consuming, expensive, and subject to listener variability [8]. Methodologies are diverse, including:
+
+\textbf{Localization Pointing Tasks:} Listeners identify the perceived location of static or dynamic sound sources, and performance is measured by localization error (azimuthal, polar, great-circle) and front-back confusion rates [9].
+
+\textbf{Trajectory Rating:} An "indirect" method where listeners rate the "spatial accuracy" or "quality" of a moving sound source (e.g., a trajectory) against a description of its intended path. This is often used as a measure of global spatial quality [3].
+
+\textbf{Comparative Quality Assessment:} Listeners rate attributes like timbral coloration, externalization, and overall preference, often using standardized methods like MUSHRA (MUlti Stimulus test with Hidden Reference and Anchor) [14].
+
+\textbf{Objective Metrics (The "Proxy"):} This paradigm uses computational, signal-based metrics to quantify the difference between a "reference" (e.g., an individual's measured HRTF) and a "test" (e.g., a processed or personalized HRTF). These methods are fast, perfectly repeatable, and computationally inexpensive. The most ubiquitous metric in HRTF research and development is Spectral Distortion (SD), or its logarithmic variant, Log-Spectral Distortion (LSD) [18]. SD is typically defined as the Mean Square Error (MSE) between the magnitude (or log-magnitude) spectra of the two HRTFs, averaged across frequency and spatial directions [18].
+
+This report addresses the central conflict that defines the research topic: the consistent and well-documented poor correlation between these two paradigms [9]. The objective metrics that the audio engineering community relies on for system design, data reduction, and optimization are fundamentally unreliable predictors of the subjective, perceptual outcome. This disconnect forms the primary obstacle to developing truly effective HRTF personalization and processing techniques.
+
+\subsection{1.2	Motivation}
+
+The most direct and compelling evidence of this disconnect is found in the 2022 study "Perceptual Impact on Localization Quality Evaluations of Common Pre-Processing for Non-Individual Head-Related Transfer Functions" by Andreopoulou and Katz [3]. This study was explicitly designed to test the foundational hypothesis that underpins decades of HRTF processing, simplification, and dimensionality reduction.
+
+This hypothesis, as stated by the authors, is that "user-assessments should remain roughly unchanged, as long as the range of signal variations between processed and unprocessed (reference) HRTFs lies within ranges previously reported as perceptually insignificant" [3]. This assumption is the explicit justification for common techniques like spectral smoothing, Principal Component Analysis (PCA), and filter modeling (e.g., IIR), which all aim to reduce HRTF data complexity by discarding "unnecessary" spectral detail [3]. The "acceptability" of such processing has long been defined by achieving an SD metric below a given threshold, such as 1 or 2 dB [3].
+
+The study's methodology involved having expert listeners subjectively rate the spatial accuracy of moving sound trajectories rendered with different HRTFs. They compared ratings for the original, full-phase HRTFs against ratings for two processed versions: a minimum-phase (Min Ph.) approximation and an Infinite-Impulse Response (IIR) model.
+
+The conclusion of the study is an unambiguous and profound rejection of the foundational hypothesis [3]. The authors found that spectral variations, even those well within "acceptable" objective ranges, can "lead to inversions in quality assessment, resulting in the perceptual rejection of HRTFs that were previously characterized... as the 'most appropriate' or alternatively in the preference of datasets that were previously dismissed as 'unfit'" [3].
+
+This finding is not merely an incremental adjustment but a fundamental invalidation of the field's guiding principle for data reduction. It demonstrates that the industry-standard objective metric (SD) is not just slightly inaccurate, but is actively misleading. The study's logic is inescapable:
+
+\textbf{The Premise:} HRTF simplification is based on the idea that much of the spectral detail in a measured HRTF is perceptually "unnecessary" [3].
+
+\textbf{The Operational Definition:} "Unnecessary" has been operationally defined by objective metrics. If the SD between the original and simplified HRTF is below an established threshold (e.g., < 2 dB), the simplification is deemed "acceptable" and perceptually irrelevant [3].
+
+\textbf{The Test:} Andreopoulou \& Katz created a minimum-phase processed dataset that objectively met this standard, exhibiting an SD consistently below 1 dB [3].
+
+\textbf{The Result:} Subjective assessments of this "objectively acceptable" dataset were not perceptually equivalent. The subjective quality rankings became highly decorrelated from the original, with a median Pearson's correlation coefficient (r) of only ≈0.5 (where 1.0 would be identical) [3].
+
+\textbf{The Conclusion:} The objective standard of "acceptability" (SD < 1 dB) is invalid. It permitted a processing pipeline that caused a massive subjective decorrelation. This forces the conclusion that the "unnecessary" spectral and/or phase details that were discarded were, in fact, perceptually critical.
+
+\subsection{Problem Statement}
+
+The quest for perceptual transparency in virtual auditory displays (VADs) faces a critical bottleneck: the fundamental misalignment between the objective metrics used to optimize spatial audio systems and the subjective reality of human hearing. At the core of this disconnect is the Head-Related Transfer Function (HRTF), a high-dimensional acoustic filter that encapsulates the unique diffractive, reflective, and resonant properties of an individual's anatomy---specifically the torso, head, and pinnae. These filters are the mathematical bridge between a sound source and the eardrum, carrying the necessary cues for spatial localization, externalization, and immersion.1 However, the engineering paradigms governing the selection, compression, and personalization of HRTFs currently rely on evaluation metrics that are demonstrably unreliable predictors of perceptual quality.
+
+The primary problem is that the industry-standard metrics---Mean Square Error (MSE) and Log-Spectral Distortion (LSD)---are derived from linear system theory and treat the HRTF as a simple signal transmission problem. These metrics quantify "error" as the global spectral difference between a reference HRTF and a processed approximation, averaging magnitude deviations across all frequency bands and spatial directions.3 This approach operates on the implicit, and incorrect, assumption that the human auditory system functions as a linear, time-invariant spectrum analyzer that weights all spectral distortions equally. In reality, auditory perception is highly non-linear, binaural, and feature-specific. The brain does not perceive "mean square error"; it perceives specific psychoacoustic cues such as Interaural Time Differences (ITD) for low-frequency azimuth, Interaural Level Differences (ILD) for lateralization, and sparse, high-frequency spectral notches (5--10 kHz) for elevation and front-back discrimination.1 Current metrics are blind to this hierarchy of features. Consequently, a processing artifact that obliterates a critical 7 kHz pinna notch (destroying elevation perception) may yield a numerically lower, "better" LSD score than a benign 2 dB gain fluctuation in a non-critical frequency band. This mathematical equivalence creates a dangerous "blind spot" where critical spatial cues can be degraded without triggering objective alarms.
+
+This metric failure manifests as a "perceptual cliff," a phenomenon where minute objective errors---often well within the accepted thresholds of "perceptual transparency" (e.g., SD < 1 dB)---precipitate a catastrophic collapse in subjective quality. This was definitively exposed by Andreopoulou and Katz (2022), who demonstrated that minimum-phase approximations of HRTFs, despite achieving spectrally "perfect" LSD scores, resulted in a near-total decorrelation of subjective spatial rankings (\$r \textbackslash\{\}approx 0.5\$).1 By discarding the mixed-phase components inherent in the acoustic response of the pinna, the minimum-phase simplification preserved the \textit{magnitude} spectrum (satisfying the LSD metric) but destroyed the temporal fine structure and group delay cues essential for crisp localization and externalization. The metric's inability to detect this phase distortion meant that it effectively validated a processing technique that degraded the user experience. This creates a systemic risk in the development of "scalable" spatial audio: algorithms are being trained to minimize a loss function (LSD) that does not correlate with the desired output (perceptual realism), effectively optimizing for mathematical precision at the expense of auditory fidelity.6
+
+Furthermore, the prevalent evaluation paradigm is fundamentally monaural, assessing the left and right channels in isolation and averaging the resulting error scores. This architecture ignores the binaural nature of spatial hearing, where the \textit{difference} and \textit{coherence} between the ears are often more significant than the absolute signal at either ear. Phenomena such as the "better-ear effect," masking release, and the perception of auditory spaciousness are driven by the interaction between the two signals.8 A monaural metric like LSD cannot account for errors in the Interaural Cross-Correlation (IACC) or subtle shifts in ILD that occur when spectral errors in the left and right ears are anti-correlated. For instance, a 1 dB boost in the left ear and a 1 dB cut in the right ear might average out to a low monaural error, but they combine to create a 2 dB shift in the ILD, causing a perceptually significant shift in the perceived source location. By failing to capture these binaural interactions, standard metrics miss the emergence of spatial attributes that only exist in the combined auditory stream.
+
+The consequences of this "false positive" rating (where bad HRTFs are rated as good) are compounded by "false negatives," where perceptually beneficial modifications are penalized. Techniques such as magnitude warping, contrast enhancement, or spectral exaggeration---often used to assist listeners with hearing deficits or to overcome headphone coloration---inevitably increase the spectral distance from the original measurement, resulting in poor LSD scores.2 Because the metric penalizes \textit{any} deviation from the reference equally, it cannot distinguish between distortion that destroys a cue and modification that enhances it. This indiscriminacy forces researchers to rely on expensive, time-consuming subjective listening tests (e.g., MUSHRA, localization pointing tasks) as the only reliable ground truth, effectively creating a bottleneck that stifles the iterative design of personalization algorithms.9
+
+The problem is further exacerbated by the increasing reliance on machine learning for HRTF generation and upsampling. Deep learning models, such as autoencoders or Generative Adversarial Networks (GANs), require differentiable loss functions for training. When these models are trained using MSE or LSD as the loss function---as is the standard practice---they are explicitly incentivized to produce spectrally smooth, "average" HRTFs that minimize global variance but often lack the sharp, idiosyncratic spectral features necessary for individual externalization.6 The model learns to "play it safe" to satisfy the metric, resulting in spatial audio that sounds "in-the-head" or muddy. Without a new evaluation framework that integrates psychoacoustic models, binaural analysis, and feature-weighted error calculation, the field remains unable to close the loop between signal processing and human perception, leaving the promise of truly immersive, personalized auditory environments unfulfilled.
+
+
+\subsection{1.4	Objectives and Scope}
+
+This research aims to analyze the specific failure modes of current metrics and propose a framework for perceptually-informed evaluation.
+
+SD and LSD are, by definition, calculated on the magnitude (or log-magnitude) spectra [18]. They are fundamentally blind to all phase information. This is a critical, and often fatal, flaw. The long-held assumption that the human auditory system is "phase-deaf" is a dangerous oversimplification, especially in the context of HRTFs [4]. While less sensitive to absolute phase, the relative phase between the ears forms the Interaural Time Difference (ITD), which is the dominant psychoacoustic cue for localizing sounds in the horizontal plane, particularly at low frequencies [2]. Furthermore, the minimum-phase approximation itself, while a common simplification, is not perceptually neutral and can lead to inferior localization performance for directions near the interaural axis [30]. The Andreopoulou \& Katz study [3] provides the ultimate demonstration: by only modifying phase-related components (and introducing co-incident spectral smoothing), subjective perception was radically altered. The magnitude-only SD metric, by its very design, was incapable of detecting this critical perceptual change.
+
+SD/LSD is typically calculated as an average of two monaural comparisons: the reference left-ear HRTF is compared to the processed left-ear HRTF, and the reference right-ear is compared to the processed right-ear [22]. This architecture completely misses the binaural nature of spatial hearing. Spatial perception arises from the central nervous system's comparison and difference between the signals arriving at both ears [2]. A metric that is purely monaural cannot capture errors in these critical binaural cues. For example, a subtle, anti-correlated error---a 1 dB boost in the left ear and a 1 dB cut in the right ear at the same frequency---could result in a low (good) average SD score, but would create a massive, 2 dB error in the Interaural Level Difference (ILD), which is perceptually disruptive [4].
+
+Finally, SD/LSD (and its root, MSE) is a globally-averaged metric. It treats errors in all frequency bins (or log-bins) with relatively equal importance. Human perception is profoundly non-uniform. Psychoacoustic research has unequivocally shown that localization in the median (sagittal) plane---distinguishing front from back, and up from down---is heavily dependent on specific, high-frequency spectral features (notches and peaks) created by pinna reflections [2]. A globally-averaged metric like SD will "drown out" a critical, perceptually devastating error (e.g., shifting a single 8 kHz pinna notch by 500 Hz) with "good" performance across other frequencies [8].
+
+
+\textbf{1.5}\textbf{	Thesis Structure}
+
+The preceding sections established the core conflict in HRTF evaluation and detailed the fundamental flaws of the ubiquitous Spectral Distortion metric. The remaining chapters of this report delve into the consequences of these flaws and propose a new path forward. Chapter 2 deconstructs the mechanisms of objective metric failure using detailed case studies on HRTF processing techniques and sets the stage for defining the necessary advancements. Chapter 3 introduces a comprehensive framework of modern, perceptually-informed objective metrics organized by their level of sophistication---from cue-based measurements to advanced machine-learned models. Finally, Chapter 4 synthesizes these findings into actionable recommendations for future research and development in HRTF evaluation.
+
+
+\textbf{Chapter 2}
+
+\section{Literature Review}
+
+\textbf{2.1}\textbf{	Introduction}
+
+
+To understand how to build better metrics, it is essential to deconstruct the mechanisms of the failure demonstrated in the Andreopoulou \& Katz [34] case study. The minimum-phase and IIR modeling conditions serve as perfect, isolated examples of how specific processing techniques expose the flaws of magnitude-only metrics.
+
+The Minimum-Phase Fallacy: Isolating the Failure of Magnitude-Only Metrics
+
+The "minimum-phase plus delay" model has long been a cornerstone of "perceptually-based" HRTF processing [3]. This model is based on seminal studies, such as Kistler \& Wightman (1992) [15], which argued that an HRTF's phase response can be adequately modeled as a minimum-phase component (derived from its magnitude spectrum) plus a simple frequency-independent time delay (to account for the ITD) [13].
+
+The Andreopoulou \& Katz [34] study implemented this by decomposing the 256-tap full-phase HRTFs using a Hilbert transform and then truncating them to 64-tap filters. This truncation inherently introduced a degree of spectral smoothing. Critically, the study's authors then re-inserted the original, position-dependent ITD values to ensure ITD was consistent across all conditions [3].
+
+The results of this experiment are the most damning evidence against SD as a perceptual metric:
+
+\textbf{Objective:} The SD between the full-phase and minimum-phase HRTFs was consistently below 1 dB [3], well within the range universally considered "perceptually insignificant."
+
+\textbf{Subjective:} The subjective quality rankings collapsed. The median correlation (r) between the full-phase and minimum-phase ratings was ≈0.5 [3].
+
+This was not just statistical "noise." The analysis of the rating categories revealed that ≈18\% of HRTFs rated as "High" quality in the full-phase condition were rated as "Low" quality in the minimum-phase condition [3]. This is a complete inversion of perceptual assessment. Because the ITD---the primary horizontal localization cue---was controlled for [3], the massive subjective decorrelation cannot be blamed on incorrect horizontal positioning.
+
+The failure must, therefore, stem from the two "subtle" forms of information that were discarded by the processing:
+
+\textbf{True Mixed-Phase Information:} The original HRTFs are mixed-phase. The minimum-phase approximation discards all non-minimum-phase components. The study proves this information is not perceptually irrelevant.
+
+\textbf{Spectral Fine-Structure:} The truncation resulted in spectral smoothing. While this produced a low globally-averaged SD, it may have been "perceptually catastrophic" by blurring the very sparse, high-frequency pinna notches used for elevation and externalization.
+
+
+
+\subsection{2.2	Previous Work}
+
+The quest to quantify the similarity between Head-Related Transfer Functions (HRTFs) has evolved from simple signal processing heuristics to complex, data-driven perceptual models. This section reviews the trajectory of HRTF evaluation, highlighting the limitations of traditional metrics and the emergence of modern, perception-based frameworks.
+
+\textbf{2.1 The Era of Spectral Distortion and Linear Metrics (1990s -- 2010s)}
+
+For decades, the dominant paradigm in HRTF evaluation has been the calculation of spectral differences between a reference (measured) HRTF and a test (processed/modeled) HRTF. The most ubiquitous metric is Spectral Distortion (SD), often calculated as the Root Mean Square (RMS) difference of the log-magnitude spectra.
+
+\$\$ SD = \textbackslash\{\}sqrt\{\textbackslash\{\}frac\{1\}\{N\} \textbackslash\{\}sum\_\{n=1\}\textasciicircum{}\{N\} (20 \textbackslash\{\}log\_\{10\} |H\_\{ref\}(f\_n)| - 20 \textbackslash\{\}log\_\{10\} |H\_\{test\}(f\_n)|)\textasciicircum{}2\} \$\$
+
+This metric's widespread adoption was driven by its computational simplicity and mathematical convexity, making it an ideal candidate for cost functions in optimization algorithms such as spherical harmonic decomposition or Principal Component Analysis (PCA) reconstruction.1
+
+Early validation attempts focused on establishing "just noticeable difference" (JND) thresholds for SD. Studies in the 1990s and 2000s often cited thresholds (e.g., 1 dB or 2 dB) below which spectral changes were assumed to be inaudible. This led to a pervasive engineering assumption: if a compression algorithm or modeled filter achieves a mean SD lower than the threshold, the processing is "transparent." However, limitations were evident early on. Kistler and Wightman (1992) noted that while PCA could reconstruct HRTFs with low spectral error, the perceptual validity relied heavily on preserving specific principal components that carried localization cues, not just minimizing global variance.3
+
+Alternative distance metrics attempted to refine SD. The Log-Spectral Distortion (LSD) emphasizes differences in the logarithmic domain, better matching the ear's dynamic range intensity perception. Other variants included the Inter-Subject Spectral Difference (ISSD) and correlation-based metrics.14 However, a comprehensive 2023 study by \textbf{Ahrens, Doma, and Fels}, titled \textit{"Examining the interrelation behavior of distance metrics for head-related transfer function evaluation,"} systematically analyzed seven common metrics (including MSE, Critical-Band MSE, and Mel-frequency Cepstral Distortion). Their analysis, performed on the ITA HRTF database using PCA-based reconstruction errors, revealed a critical redundancy: most metrics were highly correlated with one another, providing little unique information. More importantly, the study concluded that while these metrics could describe signal differences, they exhibited "case-dependency" that made them unreliable predictors of audibility across different types of spectral distortions.14 They argued that no single linear metric could suffice, suggesting that the complexity of auditory perception required a "higher-level metric" or a combination of descriptors.
+
+\textbf{2.2 The Breakdown of the Objective-Subjective Correlation}
+
+The pivotal critique of magnitude-only metrics was crystalized in the 2022 study by \textbf{Andreopoulou}\textbf{ and Katz}, \textit{"Perceptual Impact on Localization Quality Evaluations of Common Pre-Processing for Non-Individual Head-Related Transfer Functions"}.4 This work serves as the primary motivation for the current research proposal.
+
+Andreopoulou and Katz designed an experiment explicitly to stress-test the correlation between SD and perceptual spatial quality. They utilized expert listeners to rate the trajectory quality of sound sources rendered with three versions of HRTFs: the original raw measurements, a minimum-phase approximation (re-inserting ITD), and an IIR filter model.
+
+\textbf{The Minimum-Phase Failure:} The minimum-phase condition achieved an objective score that was theoretically "perfect" by industry standards, with SD consistently below 1 dB. Yet, subjective results showed a massive decorrelation (\$r \textbackslash\{\}approx 0.5\$) compared to the reference.
+
+\textbf{The Perceptual Inversion:} Approximately 18\% of HRTFs rated as "High Quality" in the reference set were downgraded to "Low Quality" in the minimum-phase set, despite the negligible objective error.
+
+\textbf{The IIR Cliff:} The IIR models, which introduced slightly higher SD (>1.5 dB), caused a total collapse of perceptual correlation (\$r \textbackslash\{\}approx 0.3\$), essentially rendering the objective metric useless for prediction.
+
+This study definitively proved that SD is blind to phase distortion and fine spectral structure loss---two factors that are critical for maintaining the stability and plausibility of a virtual sound source.4 It highlighted that the "unnecessary" details discarded by minimum-phase assumptions are, in fact, perceptually salient.
+
+\textbf{2.3 Computational Auditory Models (CAMs) as Metrics}
+
+In response to the failure of signal-based metrics, researchers began employing Computational Auditory Models (CAMs)---sophisticated algorithms that simulate the physiological processing of the ear and brain---as evaluation tools. Instead of measuring the distance between signals, these methods measure the distance between the \textit{predicted internal representations} of those signals.
+
+\textbf{Engel et al. (2022)} pioneered the systematic use of the \textbf{Auditory Modeling Toolbox (AMT)} to evaluate HRTF preprocessing methods for Ambisonics rendering.16 In their study, \textit{"Assessing HRTF preprocessing methods for Ambisonics rendering through perceptual models,"} they replaced human listeners with three specific validated models:
+
+\textbf{Reijniers}\textbf{ et al. (2014):} A Bayesian ideal-observer model for sound localization. It predicts localization uncertainty and error by comparing the input binaural signal against a learned template of the subject's HRTF cues.18
+
+\textbf{Baumgartner et al. (2021):} A model for sound externalization. This model analyzes monaural spectral cues and interaural deviations to predict the degree to which a sound is perceived as "outside the head" versus "inside the head".15
+
+\textbf{Jelfs et al. (2011):} A model for speech intelligibility in spatial noise.
+
+Engel et al. demonstrated that these models could successfully differentiate between preprocessing methods (e.g., MagLS vs. Spline interpolation) even when standard spectral metrics showed ambiguous results.17 The study validated that the "BiMagLS" method (Bilateral Magnitude Least Squares) preserved localization cues better than traditional approaches. This work established a new methodology: using "virtual listeners" (CAMs) to run thousands of trials that would be impossible with human subjects.
+
+\textbf{2.4 Data-Driven and Learned Metrics}
+
+A parallel stream of research has moved towards \textit{learning} the perceptual metric directly from data, leveraging machine learning (ML) to bridge the gap between signal and perception.
+
+\textbf{Ananthabhotla}\textbf{, }\textbf{Ithapu}\textbf{, and }\textbf{Brimijoin}\textbf{ (2021)} introduced a landmark framework in their JASA Express Letter, \textit{"A framework for designing head-related transfer function distance metrics that capture localization perception"}.7 They argued that the relationship between HRTF spectral features and localization is highly non-linear. They proposed a "Manifold Learning" approach:
+
+\textbf{Pre-training:} They first trained a Convolutional Neural Network (CNN) on a large database of HRTFs (123 subjects) to predict the spatial location (azimuth/elevation) of a sound source. This forced the network to learn which spectral features are actually useful for localization (e.g., notches) and which are irrelevant.
+
+\textbf{Metric Construction:} The internal representation (latent space) of this neural network was then used as the "metric." The distance between two HRTFs was defined as the Euclidean distance between their embeddings in this learned latent space, rather than their raw spectra.
+
+\textbf{Fine-Tuning:} The model was further fine-tuned using sparse perceptual data from human listening tests.
+
+They demonstrated that this "Neural Metric" aligned significantly better with human localization performance than SD/LSD. The metric effectively "learned" that a 1 dB error in a spectral notch is far more important than a 1 dB error in a spectral peak, mirroring human sensitivity.7
+
+Building on this concept, \textbf{Zhang et al. (2025)} recently proposed \textit{"Towards Perception-Informed Latent HRTF Representations"}.9 They addressed the issue that most Deep Learning models for HRTF generation (e.g., autoencoders) are trained with an MSE loss function, which inherently produces spectrally smooth, "blurry" HRTFs that lack perceptual detail. They introduced a supervision method using \textbf{Metric Multidimensional Scaling (MMDS)}. By calculating a "perceptual distance matrix" (using auditory models like Baumgartner's) and forcing the latent space of the Autoencoder to respect these distances, they ensured that the generated HRTFs were perceptually optimized, not just mathematically averaged.9
+
+\textbf{2.5 Recent Advances: PESD and BINAQUAL (2024-2025)}
+
+The most recent literature has seen the introduction of specialized metrics designed to replace SD entirely.
+
+\textbf{Armstrong et al. (2024)} published \textit{"Perceptually enhanced spectral distance metric for head-related transfer function quality prediction"} in JASA.12 This work represents a direct evolution of the standard SD metric. The authors conducted listening tests to identify exactly \textit{why} LSD fails. Based on these data, they engineered the \textbf{Perceptually Enhanced Spectral Distance (PESD)}. Unlike a black-box neural network, PESD is an algorithmic metric that incorporates:
+
+\textbf{Threshold Discrimination:} Ignoring errors below auditory detection thresholds.
+
+\textbf{Feature Combination:} Explicitly weighting spectral peaks and notches differently.
+
+Binaural Weighting: Incorporating interaural differences rather than just monaural spectra.
+
+The authors claim PESD exhibits "superior performance in prediction error and correlation with actual perceptual results" compared to all previous spectral metrics.12
+
+Finally, \textbf{Panah et al. (2025)} introduced \textbf{BINAQUAL}.11 Adapted from the AMBIQUAL metric for Ambisonics, BINAQUAL is a full-reference metric specifically for binaural audio. It utilizes a "Neuro-SIM" (NSIM) approach, calculating similarity based on phaseograms and structural similarity indices (SSIM) applied to the time-frequency representation of the binaural signal. It explicitly models the preservation of localization cues (ITD/ILD) and has been validated against MUSHRA listening test scores, showing strong correlation for evaluating compression artifacts and spatial degradations.11
+
+\textbf{Summary of Research Gaps}
+
+Despite these advances, a unified, universally accepted standard is missing.
+
+\textbf{Fragmented Landscape:} We have "localization metrics" (Reijniers), "coloration metrics" (SD/LSD), and "externalization metrics" (Baumgartner), but no single score that captures the holistic "Spatial Quality."
+
+\textbf{Implementation Barriers:} Neural metrics (Ananthabhotla) require training data and GPU resources; CAMs (Engel) are computationally heavy. A lightweight, robust metric like PESD needs broader independent validation.
+
+\textbf{Phase Blindness:} While BINAQUAL addresses phase, many "enhanced" spectral metrics (like PESD) often still focus heavily on magnitude, potentially missing the "phase-sensitive" distortions highlighted by Andreopoulou \& Katz.
+
+This thesis aims to bridge these gaps by proposing a rigorous evaluation of these emerging metrics against a new set of ground-truth subjective data, specifically targeting the "perceptual cliff" identified in prior work.
+
+
+\textbf{2.3}\textbf{	Research Gaps}
+
+Having established that Spectral Distortion fails (Chapter 1) and why it fails (Chapter 2), the core of the research query---the improvement of objective metrics---must be addressed. The solution is to move away from simple, perceptually-blind signal comparisons and toward metrics that are explicitly designed to measure what humans perceive.
+
+The solutions can be organized into a framework of escalating sophistication:
+
+\textbf{Level 1: Measure the Cues.} Stop comparing the entire spectrum and instead compare the specific, known psychoacoustic cues (ITD, ILD) that the brain uses [19].
+
+\textbf{Level 2: Model the Percept.} Use validated, computational models of human hearing to predict the subjective outcome (e.g., localization error, externalization) [4].
+
+\textbf{Level 3: Learn the Perceptual Space.} Use machine-learning (ML) and data-driven approaches to learn a metric or a data representation that is inherently aligned with human perception [25].
+
+\subsection{2.4	Summary}
+
+The preceding sections highlighted a fundamental failure of traditional metrics like Spectral Distortion (SD) to predict subjective HRTF quality. This failure is rooted in SD's inability to account for critical phase information, binaural comparison, and the non-linear weighting of sparse spectral cues by the human auditory system. The analysis of minimum-phase and IIR modeling revealed a "perceptual cliff," where minute objective errors can cause catastrophic subjective assessment collapses, proving that new, perceptually-anchored metrics are necessary. The following chapters detail the methodologies currently being developed to bridge this gap.
+
+\textbf{Chapter 3}
+
+\section{Methodology and Theory of Work}
+
+\subsection{3.1      Dataset: Metrics Based on Core Psychoacoustic Cues}
+
+This is the most direct and logical "fix" for SD/LSD. If the old metric fails because it is monaural and magnitude-only, the first improvement is to use metrics that are binaural and cue-based.
+
+\textbf{Interaural Time Difference (ITD) Error:}
+
+\textbf{Mechanism:} ITD is the primary cue for horizontal localization [2].
+
+\textbf{Metric:} A simple Root Mean Square Error (RMSE) between the ITD values (calculated via cross-correlation or other methods) of the reference and processed HRTFs, averaged across all spatial positions [19].
+
+\textbf{Application:} This metric is already used to validate ITD-personalization methods [39] and proposed as a "spatial loss" function for training machine learning models [42].
+
+\textbf{Limitation:} This metric is necessary but not sufficient. The Andreopoulou \& Katz [34] study controlled for ITD, yet subjective quality perception still collapsed.
+
+\textbf{Interaural Level Difference (ILD) Error:}
+
+\textbf{Mechanism:} ILD is the secondary cue for horizontal localization (at high frequencies) and a primary component of elevation cues [2].
+
+\textbf{Metric:} This is often defined as a Spectral Distortion of the ILD spectrum itself (e.g., \$SD(ILD\_\{reference\}, ILD\_\{processed\})\$), averaged across frequencies and positions [4].
+
+\textbf{Application:} This provides a perceptually-anchored error, as the Just Noticeable Difference (JND) for ILD is known to be ≈1 dB, providing a clear threshold for "acceptable" error [18].
+
+While this cue-based approach is a clear improvement, it is still reductionist. It does not model how these cues are combined or interpreted by the brain.
+
+\subsection{3.2      Data Preprocessing: Auditory Modeling as an Objective Metric}
+
+This approach represents a significant paradigm shift. Instead of inventing a simple formula (like SD), this method uses a complex, validated computational model of the human auditory system as the metric itself. The HRTFs are fed into the model, and the model's predicted perceptual outcome (e.g., "predicted localization error in degrees") becomes the objective score [3].
+
+The Auditory Modeling Toolbox (AMT) [4] is the central repository for such models:
+
+Localization Models:
+
+reijniers2014: This is an "ideal-observer" Bayesian localization model [49]. It considers all available spatial information to predict human sound localization performance [52].
+
+baumgartner2014: A validated robust model specifically for sagittal-plane (elevation) localization [56], dependent on monaural spectral cues [57].
+
+Externalization Models:
+
+baumgartner2021: This model predicts "externalization"---the crucial "out-of-head" quality [58]. It is a multi-cue model that calculates "cue-specific expectation errors" based on 8 different cues, including Monaural Spectral Similarity (MSS) and Interaural Spectral Similarity of ILDs (ISS) [63].
+
+This "model-is-the-metric" approach is far more powerful than simple cue-measurement as it captures non-linear cue interactions.
+
+
+\subsection{3.3      Model Description}
+
+This approach uses machine learning to learn a metric (or a perceptual space) directly from data, often using the psychoacoustic models from Level 2 as a guide.
+
+BINAQUAL: A Validated Cue-Based Metric
+
+BINAQUAL is a new (2025), full-reference objective metric designed specifically to assess spatial localization similarity [64]. It represents a hybrid of Level 1 and Level 3.
+
+\textbf{Mechanism:} It operates by comparing time-frequency representations of the core binaural cues: ITD, ILD, and Interaural Coherence [66].
+
+\textbf{Validation:} Critically, its output has been shown to "correlate strongly with subjective listening tests" for localization quality [64].
+
+Perceptually Enhanced Spectral Distance (PESD)
+
+This metric (JASA 2024) is a direct "fix" for SD/LSD [70].
+
+\textbf{Mechanism:} Developed by first running listening tests to quantify why LSD fails [24]. Based on these results, a new metric was designed that processes HRTF data through spectral analysis, threshold discrimination, feature combination, binaural weighting, and perceptual outcome estimation [26].
+
+\textbf{Validation:} The authors claim it exhibits "superior performance in prediction error and correlation with actual perceptual results" compared to standard SD/LSD [26].
+
+
+\subsection{3.4      Fine-tuning: Perception-Informed Latent Spaces}
+
+This is the most advanced concept, aimed at "improving" the training of ML models for HRTF personalization [71].
+
+\textbf{The Problem:} Most ML models for HRTF generation (e.g., autoencoders) are trained to optimize MSE or LSD [75]. This means they are trained to "get better at a broken metric," producing results that are spectrally smooth but not perceptually accurate [75].
+
+\textbf{The Goal:} To train a model to optimize for perceptual similarity. This is achieved by creating a "latent space" (a compressed HRTF representation) where the distance between two HRTFs correlates with the perceptual distance between them [75].
+
+\textbf{The Method (Metric-Based Loss Function):}
+
+\textbf{Differentiable:} If the metric is differentiable (e.g., BINAQUAL), it can be added directly to the training loss [74].
+
+\textbf{Non-Differentiable (MMDS Supervision):} For complex AMT models [74], a large pairwise "perceptual distance matrix" is pre-computed. Metric Multidimensional Scaling (MMDS) is used to find a low-dimensional set of "target" coordinates that best preserves these distances [72]. The ML model is then trained to minimize a combined loss including this alignment [73].
+
+
+\subsection{3.5      Evaluation}
+
+The primary objective of this research is to develop, validate, and benchmark a novel, comprehensive objective evaluation framework for Head-Related Transfer Functions (HRTFs). The working hypothesis is that a composite metric---one that explicitly integrates binaural difference analysis, phase coherency, and non-linear spectral weighting---will demonstrate a significantly stronger correlation with subjective spatial quality ratings than the current industry standard, Spectral Distortion (SD). Specifically, this research aims to overcome the "perceptual cliff" identified by Andreopoulou and Katz (2022), where traditional metrics fail to predict the perceptual collapse caused by minimum-phase approximations and filter modeling.
+
+To test this hypothesis and validate the proposed metrics, a rigorous evaluation plan has been designed. This methodology is structured to be reproducible and scales the investigation from simple signal degradation to complex, perceptually ambiguous scenarios. The evaluation will proceed in three distinct phases: \textbf{Data Preparation and Stimuli Generation}, \textbf{Subjective Ground Truth Acquisition}, and \textbf{Objective Metric Validation}.
+
+\textbf{3.5.1 Dataset Selection and Stimuli Generation}
+
+To ensure the evaluation captures the critical nuances of individual anatomical differences, the study will utilize the \textbf{SADIE II (Spatial Audio for Domestic Interactive Entertainment)} database.2 This database was selected over others (such as CIPIC or LISTEN) due to its high-fidelity acoustic measurements of 20 human subjects, accompanied by accurate 3D scans. The availability of 3D anthropometric data is essential for potential future correlations between metric performance and anatomical validity (e.g., verifying if the metric correctly penalizes errors in the "pinna notch" region specific to a user's ear size).
+
+Stimuli Generation Strategy:
+
+For each of the 20 subjects in the SADIE II database, a comprehensive set of binaural stimuli will be generated. The source material will consist of two distinct types of audio to test different aspects of spatial perception:
+
+\textbf{Pink Noise Bursts:} (Broadband, 200 Hz -- 20 kHz, 500ms duration). This provides constant energy across all critical frequency bands, ensuring valid cues for both low-frequency Interaural Time Difference (ITD) and high-frequency spectral localization. This is the "best-case" scenario for the auditory system to detect spectral coloration.
+
+\textbf{Anechoic Speech Samples:} (Harvard Sentences). Speech is a dynamic, spectrally sparse signal. Testing with speech is crucial for validating the metric's performance in realistic "telepresence" or VR communication scenarios, where temporal fine structure is more variable.
+
+Degradation Conditions (The "Attack" Vectors):
+
+To differentiate the performance of the new metrics against the baseline (SD), it is necessary to create a dataset that includes the specific "failure modes" of traditional metrics. We will process the original HRTFs using three distinct degradation methods typically found in spatial audio pipelines. These conditions are designed to be "metric-adversarial"---they may have low SD scores but high perceptual degradation.
+
+\textbf{Minimum-Phase Reconstruction (Min-Ph):}
+
+\textit{Mechanism:} The HRTFs will be homomorphically decomposed using the Hilbert Transform. The phase information will be discarded and replaced with a minimum-phase response plus a frequency-independent pure delay (to restore the ITD).
+
+\textit{Rationale:} This replicates the exact condition shown to break standard metrics in Andreopoulou \& Katz (2022).1 It tests whether the metric is sensitive to the loss of "mixed-phase" components and group delay structure, which are theoretically audible in the tails of the impulse response.
+
+\textbf{Spherical Harmonic (SH) Truncation:}
+
+\textit{Mechanism:} HRTFs will be projected onto Spherical Harmonics and reconstructed at various orders (\$N=1, 3, 5, 7, 12\$).
+
+\textit{Rationale:} This introduces spatial blurring and spectral smoothing, a common artifact in Ambisonics rendering.17 Low-order reconstruction (\$N=1, 3\$) typically results in a "low-passed" spatial resolution and significant smoothing of high-frequency pinna notches. This tests the metric's sensitivity to spectral smoothing and spatial aliasing.
+
+\textbf{Magnitude Quantization and Smoothing:}
+
+\textit{Mechanism:} The magnitude spectra will be smoothed using critical-band averaging (Gammatone filterbank) or quantized to lower bit-depths.
+
+\textit{Rationale:} This creates signals that may have low global RMS error (low SD) but potentially washed-out pinna notches or introduced quantization noise. This tests the metric's ability to detect the removal of sparse but critical spectral features.
+
+This generation process will result in a dataset of approximately \textbf{2,000 distinct binaural pairs} (20 subjects \$\textbackslash\{\}times\$ 3 processing types \$\textbackslash\{\}times\$ 4 severity levels per type \$\textbackslash\{\}times\$ multiple spatial directions).
+
+\textbf{3.5.2 Phase 1: Subjective Assessment (The Ground Truth)}
+
+A reliable "ground truth" of perceptual quality is the prerequisite for validating any objective metric. While localization error (pointing to a source) is a common metric, it is a "performance" measure, not a "quality" measure. It often fails to capture subtle degradations in timbre, externalization, and image stability. Therefore, this study will employ a \textbf{MUSHRA (}\textbf{MUlti}\textbf{ Stimulus test with Hidden Reference and Anchor)} methodology, strictly adhering to \textbf{ITU-R BS.1534-3} standards.14
+
+\textbf{Experimental Protocol:}
+
+\textbf{Participants:} A panel of 15 expert listeners will be recruited. The definition of "expert" is critical here to avoid noisy data. Expert status will be verified using a screening pre-test (following Andreopoulou \& Katz, 2016) requiring listeners to identify small spectral distortions and localization shifts in a discrimination task. Only listeners with a repeatability rate of \$>70\textbackslash\{\}\%\$ will be admitted to the main study.23
+
+\textbf{Task:} Listeners will be seated in a quiet environment and presented with a Graphical User Interface (GUI). For each trial, they will hear:
+
+\textbf{Reference:} The stimulus rendered with the original, uncompromised HRTF (High Quality).
+
+\textbf{Test Stimuli:} The same source rendered with the various processed HRTFs (Min-Phase, SH Order 3, SH Order 5, etc.).
+
+\textbf{Hidden Reference:} A duplicate of the Reference (to check for "perfect" identification).
+
+\textbf{Anchor:} A 3.5 kHz low-pass filtered version of the HRTF (serving as the defined "Low Quality" bottom anchor).
+
+\textbf{Attributes:} Participants will rate the samples on three specific scales (0-100):
+
+\textbf{Localization Accuracy:} "Does the sound originate from the exact same location as the reference?" (Focus on position).
+
+\textbf{Externalization:} "Is the sound perceived as clearly outside the head, at the same distance as the reference?" (Focus on depth/distance).
+
+\textbf{Overall Quality:} A global preference score combining timbre and space.
+
+The output of Phase 1 will be a matrix of \textbf{Mean Opinion Scores (MOS)} for every processed HRTF condition. This MOS data serves as the dependent variable (\$y\$) for the subsequent correlation analysis.
+
+\textbf{3.5.3 Phase 2: Objective Metric Calculation}
+
+In this phase, the same set of Reference and Test HRTFs used in the listening test will be analyzed using a suite of objective metrics. The goal is to compute a "distance score" (\$x\$) for every pair.
+
+\textbf{Metrics Under Evaluation:}
+
+\textbf{Baseline Metric (Control): Log-Spectral Distortion (LSD)}
+
+\textit{Definition:} The standard RMS log-magnitude difference averaged across all frequency bins.
+
+\textit{Equation:} 
+
+\$\$LSD = \textbackslash\{\}sqrt\{\textbackslash\{\}frac\{1\}\{K\}\textbackslash\{\}sum\_\{k=1\}\textasciicircum{}\{K\} \textbackslash\{\}left( 20\textbackslash\{\}log\_\{10\}\textbackslash\{\}frac\{|H\_\{ref\}(k)|\}\{|H\_\{test\}(k)|\} \textbackslash\{\}right)\textasciicircum{}2\}\$\$
+
+\textit{Role:} This represents the status quo. We expect this metric to perform poorly (\$r < 0.5\$) on the Minimum-Phase and IIR conditions.
+
+\textbf{Proposed Metric A: BINAQUAL (Neuro-SIM)}
+
+\textit{Definition:} The recently introduced full-reference metric by Panah et al. (2025).11
+
+\textit{Implementation:} This will calculate the \textbf{NSIM (Neuro-SIM)} score. It evaluates the structural similarity (SSIM) of the \textbf{phaseograms} (phase spectrograms) and magnitude spectrograms of the binaural signal.
+
+\textit{Hypothesis:} Because BINAQUAL explicitly analyzes phase coherence and interaural consistency, we hypothesize it will outperform LSD on the Minimum-Phase condition.
+
+\textbf{Proposed Metric B: Weighted Auditory Model (WAM)}
+
+\textit{Definition:} A composite metric utilizing the \textbf{Auditory Modeling Toolbox (AMT)}.24
+
+\textit{Implementation:} This metric will run two distinct models for every HRTF pair:
+
+\textbf{Reijniers}\textbf{ (2014):} A Bayesian localization model that outputs a "predicted angular error" (in degrees).
+
+\textbf{Baumgartner (2021):} An externalization model that outputs a probability score (0-1) for "in-head" vs "out-of-head."
+
+\textit{Composite Equation:} 
+
+\$\$Score\_\{WAM\} = w\_1 \textbackslash\{\}cdot (LocError) + w\_2 \textbackslash\{\}cdot (1 - ExtScore)\$\$
+
+where \$w\_1\$ and \$w\_2\$ are weighting coefficients derived from the variance in the subjective data.
+
+\textbf{Proposed Metric C: Perceptually Enhanced Spectral Distance (PESD)}
+
+\textit{Definition:} Following the methodology of Armstrong et al. (2024), this is a spectral metric with non-linear weighting.12
+
+\textit{Implementation:} We will implement a modified SD calculation that:
+
+Applies a weighting function \$W(f)\$ that emphasizes the \textbf{4 kHz -- 12 kHz} band (the critical region for pinna notches).
+
+Applies an asymmetric penalty: Errors that fill in a spectral notch (reducing localization cues) will be penalized \textbf{3x} more heavily than errors that deepen a notch or exist in a peak.
+
+\textbf{3.5.4 Phase 3: Statistical Correlation and Validation}
+
+The validity of the new metrics will be determined by their statistical correlation with the subjective MUSHRA scores obtained in Phase 1.
+
+Correlation Analysis:
+
+For each metric, we will calculate two correlation coefficients against the subjective MOS:
+
+\textbf{Pearson's Correlation Coefficient (\$r\$):} To measure the linear relationship. A perfect metric would have \$r = -1\$ (as distance increases, quality decreases).
+
+\textbf{Spearman's Rank Correlation Coefficient (\$\textbackslash\{\}rho\$):} To measure the monotonic relationship. This is critical because a good metric should correctly \textit{rank} algorithms (e.g., "Algorithm A is better than Algorithm B") even if the absolute linear scaling is imperfect.25
+
+Success Criteria:
+
+The "Problem Statement" identified that standard SD yields correlations of \$r \textbackslash\{\}approx 0.3 - 0.5\$ in difficult scenarios (the "perceptual cliff").
+
+\textbf{Failure:} If the new metrics achieve \$r < 0.6\$, they offer no significant advantage over current tools.
+
+\textbf{Success:} If the new metrics achieve a Pearson correlation of \textbf{\$r > 0.8\$} and show a statistically significant improvement over LSD (\$p < 0.05\$ using a Fisher r-to-z transformation test).
+
+Sensitivity and Specificity Analysis:
+
+We will perform a sensitivity analysis to verify robustness. We will specifically look for "false positives"---instances where the metric predicts a large error, but listeners rated the quality as high. This is crucial to ensure the metric does not penalize computationally efficient processing that is perceptually transparent (e.g., minor spectral smoothing in very high frequencies >16kHz that exceeds SD thresholds but is inaudible).
+
+\textbf{3.5.5 Implementation Plan}
+
+The implementation will be conducted using \textbf{MATLAB} and \textbf{Python} environments.
+
+\textbf{Toolboxes:} The \textbf{Auditory Modeling Toolbox (AMT)} 24 will be used for the Reijniers and Baumgartner models. The \textbf{SADIE II database} scripts will be used for HRTF manipulation. The \textbf{Binaspect} library 26 will be used for extracting binaural features for the BINAQUAL metric.
+
+\textbf{Machine Learning Extension (Contingency):} If the algorithmic metrics (WAM, PESD) fail to reach the \$r > 0.8\$ threshold, a shallow neural network (following the framework of Ananthabhotla et al., 2021) will be trained to map the input features (spectral difference, interaural coherence, phaseogram error) to the subjective MOS scores.7 This "learning the metric" approach serves as a fallback to ensure a predictive model is generated even if the heuristic weights of PESD are insufficient.
+
+This evaluation plan moves beyond the "proxy" of Spectral Distortion and establishes a rigorous, perceptually grounded framework for validating the next generation of spatial audio technologies.
+
+
+\textbf{Chapter 4}
+
+\textbf{Implementation, Results, and Discussion}
+
+\textbf{Chapter 5}
+
+\section{Conclusion and Future Work}
+
+\subsection{5.1	Conclusion and Implications}
+
+Summarize the main findings and achievements of your project.
+
+\begin{flushright}
+Discuss the implications of your work and its potential impact on the field.
+\end{flushright}
+\textbf{5.2}\textbf{	Future Work}
+
+Suggest areas for future research or improvements based on your findings.
+
+
+
+
+
+
+
+\section{Bibliography}
+
+[1] ASAudio: A Survey of Advanced Spatial Audio Research - arXiv. Available: https://arxiv.org/html/2508.10924v1
+
+[2] Auditory localization: a comprehensive practical review - Frontiers. Available: https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1408073/full
+
+[3] Assessing HRTF preprocessing methods for Ambisonics rendering through perceptual models, Acta Acustica. Available: https://acta-acustica.edpsciences.org/articles/aacus/full\_html/2022/01/aacus210029/aacus210029.html
+
+[4] Impact of HRTF individualisation and head movements in a real/virtual localisation task. Available: https://arxiv.org/html/2510.09161v1
+
+[5] A framework for designing head-related transfer function distance. Available: https://resenv.media.mit.edu/pubs/papers/2021-Ananthabhotla-JASA.pdf
+
+[6] HRTF Performance Evaluation: Methodology and Metrics for Localisation Accuracy and Learning Assessment - ResearchGate. Available: https://www.researchgate.net/publication/361481535\_HRTF\_Performance\_Evaluation\_Methodology\_and\_Metrics\_for\_Localisation\_Accuracy\_and\_Learning\_Assessment
+
+[7] Examining the interrelation behavior of distance metrics for head-related transfer function evaluation: a case study, Acta Acustica. Available: https://acta-acustica.edpsciences.org/articles/aacus/full\_html/2023/01/aacus220073/aacus220073.html
+
+[8] Evaluating HRTF Similarity through Subjective Assessments: Factors that can Affect Judgment. Available: https://www.icmc14-smc14.net/images/proceedings/PS1-B10-EvaluatingHRTF.pdf
+
+[9] Hearing protections: effects on HRTFs and localization accuracy. Available: https://d-nb.info/1214907628/34
+
+[10] Usability of Individualized Head-Related Transfer Functions in Virtual Reality: Empirical Study With Perceptual Attributes in Sagittal Plane Sound Localization - JMIR Serious Games. Available: https://games.jmir.org/2020/3/e17576/
+
+[11] Initial Evaluation of an Auditory-Model-Aided Selection Procedure for Non- Individual HRTFs - European Acoustics Association. Available: https://dael.euracoustics.org/confs/fa2023/data/articles/000489.pdf
+
+[12] Subjective HRTF evaluations for obtaining global similarity metrics of assessors and assessees - ResearchGate. Available: https://www.researchgate.net/publication/298718854\_Subjective\_HRTF\_evaluations\_for\_obtaining\_global\_similarity\_metrics\_of\_assessors\_and\_assessees
+
+[13] Method for the subjective assessment of intermediate quality level of audio systems - ITU. Available: https://www.itu.int/dms\_pubrec/itu-r/rec/bs/R-REC-BS.1534-3-201510-I!!PDF-E.pdf
+
+[14] How We Conduct Listening Tests: MUSHRA Methodology from ITU-R Recommendations. Available: https://www.testdevlab.com/blog/how-we-conduct-listening-tests-mushra-methodology-from-itu-r-recommendations
+
+[15] RECOMMENDATION ITU-R BS.1534-1 - Method for the subjective assessment of intermediate quality level of coding systems. Available: https://www.itu.int/dms\_pubrec/itu-r/rec/bs/R-REC-BS.1534-1-200301-S!!PDF-E.pdf
+
+[16] A New HRTF Interpolation Approach for Nonlinear 3D Audio Systems - ResearchGate. Available: https://www.researchgate.net/publication/374936825\_A\_New\_HRTF\_Interpolation\_Approach\_for\_Nonlinear\_3D\_Audio\_Systems
+
+[17] A Review on Head-Related Transfer Function Generation for Spatial Audio - MDPI. Available: https://www.mdpi.com/2076-3417/14/23/11242
+
+[18] Measurement of Head-Related Transfer Functions: A Review - MDPI. Available: https://www.mdpi.com/2076-3417/10/14/5014
+
+[19] Convention Paper 10502 - University Lab Sites. Available: http://labsites.rochester.edu/air/publications/Wang21HRTF.pdf
+
+[20] Personalized Head-Related Transfer Function Prediction Based on Spatial Grouping - arXiv. Available: https://arxiv.org/html/2412.07366v1
+
+[21] Perceptually enhanced spectral distance metric for head-related transfer function quality prediction - AIP Publishing. Available: https://pubs.aip.org/asa/jasa/article-pdf/156/6/4133/20312183/4133\_1\_10.0034632.pdf
+
+[22] Comparative Analysis of HRTFs Measurement Using In-Ear Microphones - PubMed Central. Available: https://pmc.ncbi.nlm.nih.gov/articles/PMC10346536/
+
+[23] Objective and Subjective Evaluation of Head-Related Transfer Function Filter Design. Available: https://www.researchgate.net/publication/2726006\_Objective\_and\_Subjective\_Evaluation\_of\_Head-Related\_Transfer\_Function\_Filter\_Design
+
+[24] Towards Perception-Informed Latent HRTF Representations - arXiv. Available: https://arxiv.org/html/2507.02815v1
+
+[25] Perceptually enhanced spectral distance metric for head-related transfer function quality prediction - PubMed. Available: https://pubmed.ncbi.nlm.nih.gov/39699206/
+
+[26] Comparing the effect of HRTF processing techniques on perceptual quality ratings. Available: https://www.researchgate.net/publication/374256530\_Comparing\_the\_effect\_of\_HRTF\_processing\_techniques\_on\_perceptual\_quality\_ratings
+
+[27] Usage of Spectral Distortion for Objective Evaluation of Personalized HRTF in the Median Plane - ResearchGate. Available: https://www.researchgate.net/publication/279060733\_Usage\_of\_Spectral\_Distortion\_for\_Objective\_Evaluation\_of\_Personalized\_HRTF\_in\_the\_Median\_Plane
+
+[28] Anatomical limits on interaural time differences: an ecological perspective - Frontiers. Available: https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2014.00034/full
+
+[29] On the Minimum-Phase Nature of Head-Related Transfer Functions - ResearchGate. Available: https://www.researchgate.net/publication/277879431\_On\_the\_Minimum-Phase\_Nature\_of\_Head-Related\_Transfer\_Functions
+
+[30] Impoverished auditory cues limit engagement of brain networks controlling spatial selective attention - PMC - PubMed Central. Available: https://pmc.ncbi.nlm.nih.gov/articles/PMC6819273/
+
+[31] Objective measure for sound localization based on head-related transfer functions. Available: https://ieeexplore.ieee.org/document/6376925/
+
+[32] Usage of Spectral Distortion for Objective Evaluation of Personalized HRTF in the Median Plane - CONICET. Available: https://ri.conicet.gov.ar/bitstream/handle/11336/181020/CONICET\_Digital\_Nro.83154233-63c1-4ef9-833b-2493c9a58726\_B.pdf?sequence=2\&isAllowed=y
+
+[33] BAUMGARTNER2021 - Sound externalization based on multiple static cues - The Auditory Modeling Toolbox. Available: https://amtoolbox.org/amt-1.3.0/doc/models/baumgartner2021.php
+
+[34] A model of head-related transfer functions based on principal components analysis and minimum-phase reconstruction - PubMed. Available: https://pubmed.ncbi.nlm.nih.gov/1564200/
+
+[35] MUSHRA - Wikipedia. Available: https://en.wikipedia.org/wiki/MUSHRA
+
+[36] Investigation Into Consistency of Subjective and Objective Perceptual Selection of Non-individual Head-Related Transfer Functions - ResearchGate. Available: https://www.researchgate.net/publication/347869923\_Investigation\_Into\_Consistency\_of\_Subjective\_and\_Objective\_Perceptual\_Selection\_of\_Non-individual\_Head-Related\_Transfer\_Functions
+
+[37] Loss functions incorporating auditory spatial perception in deep learning -- a review - arXiv. Available: https://arxiv.org/html/2506.19404v1
+
+[38] Interaural time difference individualization in HRTF by scaling through anthropometric parameters - ResearchGate. Available: https://www.researchgate.net/publication/360558904\_Interaural\_time\_difference\_individualization\_in\_HRTF\_by\_scaling\_through\_anthropometric\_parameters
+
+[39] Listener Acoustic Personalization Challenge - LAP24: Head-Related Transfer Function Upsampling - IEEE Xplore. Available: https://ieeexplore.ieee.org/document/11078906
+
+[40] PRTFNet: HRTF Individualization for Accurate Spectral Cues Using a Compact PRTF - IEEE Xplore. Available: https://ieeexplore.ieee.org/iel7/6287639/10005208/10229140.pdf
+
+[41] Interaural time difference loss for binaural target sound extraction - arXiv. Available: https://arxiv.org/html/2408.00344v1
+
+[42] Dynamic spectral cues do not affect human sound localization during small head movements - NIH. Available: https://pmc.ncbi.nlm.nih.gov/articles/PMC9936143/
+
+[43] The Auditory Modeling Toolbox 1.x | Sonicom. Available: https://www.sonicom.eu/wp-content/uploads/2023/10/ICAS2022\_The-Auditory-Modeling-Toolbox-1.x.pdf
+
+[44] AMT 1.x: A toolbox for reproducible research in auditory modeling | Acta Acustica. Available: https://acta-acustica.edpsciences.org/articles/aacus/full\_html/2022/01/aacus210052/aacus210052.html
+
+[45] Models in the Auditory Modeling Toolbox. Available: https://www.amtoolbox.org/models.php
+
+[46] Auditory Modeling Toolbox download | SourceForge.net. Available: https://sourceforge.net/projects/amtoolbox/
+
+[47] The Auditory Modeling Toolbox. Available: http://amtoolbox.org/
+
+[48] An ideal-observer model of human sound localization - PubMed. Available: https://pubmed.ncbi.nlm.nih.gov/24570350/
+
+[49] REIJNIERS2014 - Bayesian spherical sound localization model (basic). Available: https://amtoolbox.org/amt-1.0.0/doc/models/reijniers2014\_code.php
+
+[50] REIJNIERS2014 - Bayesian spherical sound localization model (basic). Available: http://amtoolbox.org/amt-1.2.0/doc/models/reijniers2014.php
+
+[51] Numerical calculation of listener-specific head-related transfer functions and sound localization: Microphone model and mesh discretization. Available: https://pmc.ncbi.nlm.nih.gov/articles/PMC4582438/
+
+[52] A Bayesian model for human directional localization of broadband static sound sources. Available: https://acta-acustica.edpsciences.org/articles/aacus/full\_html/2023/01/aacus210056/aacus210056.html
+
+[53] EXP\_REIJNIERS2014 - Experiments of Reijniers et al. (2014). Available: http://amtoolbox.org/amt-1.4.0/doc/experiments/exp\_reijniers2014.php
+
+[54] Insights into dynamic sound localisation: A direction-dependent comparison between human listeners and a Bayesian model | bioRxiv. Available: https://www.biorxiv.org/content/10.1101/2024.04.26.591250v1.full-text
+
+[55] Decision making in auditory externalization perception - bioRxiv. Available: https://www.biorxiv.org/content/10.1101/2020.04.30.068817v3.full.pdf
+
+[56] Decision making in auditory externalization perception: model predictions for static conditions | Acta Acustica. Available: https://acta-acustica.edpsciences.org/articles/aacus/full\_html/2021/01/aacus210038/aacus210038.html
+
+[57] Modeling perceived externalization of a static, lateral sound image - Acta Acustica. Available: https://acta-acustica.edpsciences.org/articles/aacus/full\_html/2020/05/aacus200024/aacus200024.html
+
+[58] Decision making in auditory externalization perception: model predictions for static conditions | bioRxiv. Available: https://www.biorxiv.org/content/10.1101/2020.04.30.068817v6
+
+[59] Sound Externalization: A Review of Recent Research - PMC - PubMed Central. Available: https://pmc.ncbi.nlm.nih.gov/articles/PMC7488874/
+
+[60] (PDF) Decision making in auditory externalization perception - ResearchGate. Available: https://www.researchgate.net/publication/341108221\_Decision\_making\_in\_auditory\_externalization\_perception
+
+[61] Modeling Sound Externalization Based on Listener-specific Spectral Cues. Available: https://www.oeaw.ac.at/fileadmin/Institute/ISF/PDF/projects/20170626\_ASA\_Baumgartner.pdf
+
+[62] BAUMGARTNER2020 - Model for sound externalization - The Auditory Modeling Toolbox. Available: https://www.amtoolbox.org/amt-0.10.0/doc/models/baumgartner2020.php
+
+[63] BINAQUAL: A Full-Reference Objective Localization Similarity Metric for Binaural Audio - arXiv. Available: https://arxiv.org/html/2505.11915v2
+
+[64] Binaspect -- A Python Library for Binaural Audio Analysis, Visualization \& Feature Generation - arXiv. Available: https://www.arxiv.org/pdf/2510.25714
+
+[65] Loss functions incorporating auditory spatial perception in deep learning -- a review - arXiv. Available: https://arxiv.org/pdf/2506.19404
+
+[66] Binaspect -- A Python Library for Binaural Audio Analysis, Visualization \& Feature Generation - ResearchGate. Available: https://www.google.com/search?q=https://www.researchgate.net/publication/397040634\_Binaspect\_--A\_Python\_Library\_for\_Binaural\_Audio\_Analysis\_Visualization\_Feature\_Generation
+
+[67] [2505.11915] BINAQUAL: A Full-Reference Objective Localization Similarity Metric for Binaural Audio - arXiv. Available: https://arxiv.org/abs/2505.11915
+
+[68] SynBAD: Synthetic Binaural Audio Dataset - Zenodo. Available: https://zenodo.org/records/17247053
+
+[69] Perceptually Enhanced Spectral Distance Metric for Head-Related Transfer Function Quality Prediction - University of Huddersfield Research Portal. Available: https://pure.hud.ac.uk/en/publications/perceptually-enhanced-spectral-distance-metric-for-head-related-t
+
+[70] [2507.02815] Towards Perception-Informed Latent HRTF Representations - arXiv. Available: https://arxiv.org/abs/2507.02815
+
+[71] Revision History for Towards Perception-Informed Latent. Available: https://openreview.net/revisions?id=dqVEsQ4dix
+
+[72] (PDF) Towards Perception-Informed Latent HRTF Representations - ResearchGate. Available: https://www.researchgate.net/publication/393379339\_Towards\_Perception-Informed\_Latent\_HRTF\_Representations
+
+[73] Towards Perception-Informed Latent HRTF Representations - You (Neil) Zhang - University of Rochester. Available: https://yzyouzhang.com/resources/WASPAA\_O1-5\_zhang25towards.pdf
+
+[74] Tutorial: Personalizing Spatial Audio with Machine Learning. Available: https://www.google.com/search?q=https://yzyouzhang.com/resources/Personalizing\_Spatial\_Audio\_Machine\_Learning\_for\_Personalized\_Head-Related\_Transfer\_Functions(HRTFs)\_Modeling\_in\_Gaming.pdf
+
+[75] Journal - AES - Audio Engineering Society. Available: https://aes2.org/publications/journal/
+
+[76] Decision making in auditory externalization perception: model predictions for static conditions | Acta Acustica. Available: https://acta-acustica.edpsciences.org/articles/aacus/full\_html/2021/01/aacus210038/aacus210038.html/mailto:robert.baumgartner@oeaw.ac.at
+
+H. Møller, M. F. Sørensen, C. B. Jensen, and D. Hammershøi, "Binaural technique: Do we need individual recordings?" \textit{J. Audio Eng. Soc.}, vol. 44, no. 6, pp. 451--469, 1996. ~ 
+
+J. Blauert, \textit{Spatial Hearing: The Psychophysics of Human Sound Localization}. Cambridge, MA, USA: MIT Press, 1997. ~ 
+
+A. Andreopoulou and B. F. G. Katz, "Perceptual impact on localization quality evaluations of common pre-processing for non-individual head-related transfer functions," \textit{J. Audio Eng. Soc.}, vol. 70, no. 5, pp. 340--354, 2022. ~ 
+
+F. L. Wightman and D. J. Kistler, "The dominant role of low-frequency interaural time differences in sound localization," \textit{J. }\textit{Acoust}\textit{. Soc. Am.}, vol. 91, no. 3, pp. 1648--1661, 1992. ~ 
+
+I. Ananthabhotla, V. K. Ithapu, and W. O. Brimijoin, "A framework for designing head-related transfer function distance metrics that capture localization perception," \textit{JASA Express Lett.}, vol. 1, no. 4, Art. no. 044401, 2021. ~ 
+
+D. S. Panah, D. Barry, A. Ragano, J. Skoglund, and A. Hines, "BINAQUAL: A full-reference objective localization similarity metric for binaural audio," \textit{arXiv}\textit{ preprint arXiv:2505.11915}, 2025. ~ 
+
+Y. Wang, Y. Zhang, Z. Duan, and M. Bocko, "Global HRTF personalization using anthropometric measures," in \textit{Proc. 150th Audio Eng. Soc. Conv.}, 2021. ~ 
+
+D. J. Kistler and F. L. Wightman, "A model of head-related transfer functions based on principal components analysis and minimum-phase reconstruction," \textit{J. }\textit{Acoust}\textit{. Soc. Am.}, vol. 91, no. 3, pp. 1637--1647, 1992. ~ 
+
+S. Doma, N. Brožová, and J. Fels, "Examining the interrelation behavior of distance metrics for head-related transfer function evaluation: a case study," \textit{Acta Acustica}, vol. 7, p. 34, 2023. ~ 
+
+I. Engel, D. F. M. Goodman, and L. Picinali, "Assessing HRTF preprocessing methods for Ambisonics rendering through perceptual models," \textit{Acta Acustica}, vol. 6, p. 4, 2022. ~ 
+
+J. Reijniers, T. Vanderaviet, C. Jin, S. Carlile, and H. Peremans, "An ideal-observer model of human sound localization," \textit{Biol. }\textit{Cybern}\textit{.}, vol. 108, no. 2, pp. 169--181, 2014. ~ 
+
+R. Baumgartner and P. Majdak, "Decision making in auditory externalization perception: Model predictions for static conditions," \textit{Acta Acustica}, vol. 5, no. 3, 2021. ~ 
+
+Y. Zhang, A. Francl, R. Gao, P. Calamia, Z. Duan, and I. Ananthabhotla, "Towards perception-informed latent HRTF representations," \textit{arXiv}\textit{ preprint arXiv:2507.02815}, 2025. ~ 
+
+C. Armstrong et al., "Perceptually enhanced spectral distance metric for head-related transfer function quality prediction," \textit{J. }\textit{Acoust}\textit{. Soc. Am.}, vol. 156, no. 6, pp. 4133--4152, 2024. ~ 
+
+C. Armstrong, L. Thresh, D. Murphy, and G. Kearney, "A perceptual evaluation of individual and non-individual HRTFs: A case study of the SADIE II database," \textit{Appl. Sci.}, vol. 8, no. 11, p. 2029, 2018. ~ 
+
+International Telecommunication Union, "Method for the subjective assessment of intermediate quality level of audio systems," ITU-R Rec. BS.1534-3, 2015. ~ 
+
+A. Andreopoulou and B. F. G. Katz, "Investigation on subjective HRTF rating repeatability," in \textit{Proc. 140th Audio Eng. Soc. Conv.}, Paris, France, 2016. ~ 
+
+\end{document}
