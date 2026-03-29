@@ -1,0 +1,43 @@
+\begin{thebibliography}{4}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Ananthabhotla et~al.(2021)Ananthabhotla, Ithapu, and
+  Brimijoin]{ananthabhotla2021}
+Ishwarya Ananthabhotla, Vamsi~K. Ithapu, and W.~Owen Brimijoin.
+\newblock A framework for designing head-related transfer function distance
+  metrics that capture localization perception.
+\newblock \emph{JASA Express Letters}, 1\penalty0 (4):\penalty0 044401, 2021.
+\newblock \doi{10.1121/10.0004277}.
+
+\bibitem[Doma et~al.(2023)Doma, Bro\v{z}ov\'{a}, and Fels]{doma2023}
+Stepan Doma, Nikol Bro\v{z}ov\'{a}, and Janina Fels.
+\newblock Examining the interrelation behavior of distance metrics for
+  head-related transfer function evaluation: a case study.
+\newblock \emph{Acta Acustica}, 7:\penalty0 34, 2023.
+\newblock \doi{10.1051/aacus/2023026}.
+
+\bibitem[Yao et~al.(2024)Yao, Zhao, Liang, Wang, Gu, Jia, Lee, and
+  Li]{yao2024pesd}
+Dingding Yao, Jiale Zhao, Yunpeng Liang, Yunan Wang, Jianjun Gu, Maoshen Jia,
+  Hyunkook Lee, and Junfeng Li.
+\newblock Perceptually enhanced spectral distance metric for head-related
+  transfer function quality prediction.
+\newblock \emph{The Journal of the Acoustical Society of America}, 156\penalty0
+  (6):\penalty0 4133--4152, December 2024.
+\newblock \doi{10.1121/10.0034632}.
+
+\bibitem[Zhang et~al.(2025)Zhang, Francl, Gao, Calamia, Duan, and
+  Ananthabhotla]{zhang2025perception}
+You Zhang, Andrew Francl, Ruohan Gao, Paul Calamia, Zhiyao Duan, and Ishwarya
+  Ananthabhotla.
+\newblock Towards perception-informed latent {HRTF} representations.
+\newblock In \emph{Proc.\ {IEEE} Workshop on Applications of Signal Processing
+  to Audio and Acoustics ({WASPAA})}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2507.02815}.
+\newblock Best Student Paper Award.
+
+\end{thebibliography}

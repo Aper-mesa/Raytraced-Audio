@@ -1,0 +1,394 @@
+% =======================================================================
+%  Related Papers Report
+%  Two selected papers on perceptual HRTF evaluation metrics
+%  -----------------------------------------------------------------------
+%  Compile:  pdflatex related_papers_report
+%            bibtex   related_papers_report
+%            pdflatex related_papers_report
+%            pdflatex related_papers_report
+% =======================================================================
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage[numbers]{natbib}
+\setstretch{1.5}
+
+\begin{document}
+
+% ===  TITLE  =============================================================
+\pagenumbering{gobble}
+\thispagestyle{empty}
+
+\vspace*{2cm}
+
+\begin{center}
+{\LARGE \textbf{Related Work Report:\\
+Two Selected Papers on Perceptual HRTF Evaluation Metrics}}
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+Shanghao Zou\\[0.3cm]
+{\small Prepared for the thesis\\
+\textit{Objective Head-Related Transfer Function Evaluation Metrics\\
+for More Consistent Perceptual Assessment}}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\today
+\end{center}
+
+\newpage
+\pagenumbering{arabic}
+
+% ===  INTRODUCTION  ======================================================
+\section{Introduction}
+
+This report reviews two recent publications that are closely related to the
+thesis topic of improving objective HRTF evaluation metrics.  Both papers
+address the well-documented failure of Log-Spectral Distortion (LSD) as a
+perceptual predictor and propose distinct solutions:
+
+\begin{enumerate}[label=(\roman*)]
+  \item \textbf{Yao et~al.\ (2024)} introduce a signal-processing pipeline
+        called \emph{Perceptually Enhanced Spectral Distance} (PESD) that
+        augments spectral comparison with auditory-model stages~\cite{yao2024pesd}.
+  \item \textbf{Zhang et~al.\ (2025)} take a deep-learning approach,
+        embedding HRTFs into a perception-informed latent space supervised by
+        Metric Multidimensional Scaling (MMDS)~\cite{zhang2025perception}.
+\end{enumerate}
+
+For each paper the report covers the research motivation, datasets, models and
+algorithms, key quantitative results, and relevance to the thesis.
+
+
+% =========================================================================
+\newpage
+\section{Paper 1: Yao et~al.\ (2024) --- PESD}
+% =========================================================================
+
+\subsection{Bibliographic Information}
+
+\begin{quote}
+D.~Yao, J.~Zhao, Y.~Liang, Y.~Wang, J.~Gu, M.~Jia, H.~Lee, and J.~Li,
+``Perceptually enhanced spectral distance metric for head-related transfer
+function quality prediction,''
+\textit{J.\ Acoust.\ Soc.\ Am.}, vol.~156, no.~6, pp.~4133--4152, Dec.~2024.
+DOI: \href{https://doi.org/10.1121/10.0034632}{10.1121/10.0034632}.
+\end{quote}
+
+% ---  Motivation  --------------------------------------------------------
+\subsection{Research Motivation}
+
+LSD is the most widely used objective metric for evaluating HRTF quality,
+yet multiple studies have shown its poor correlation with perceptual
+judgements~\cite{doma2023, ananthabhotla2021}.  Yao et~al.\ identify three
+specific shortcomings of LSD:
+
+\begin{enumerate}
+  \item \textbf{No perceptual thresholds.}  LSD penalises all spectral
+        differences equally, even those below the auditory
+        just-noticeable difference~(JND).
+  \item \textbf{Uniform frequency weighting.}  The human cochlea analyses
+        sound on a roughly logarithmic frequency scale; LSD treats every
+        frequency bin identically.
+  \item \textbf{No directional sensitivity.}  Perceptual importance of
+        spectral cues varies across spatial directions, but LSD is
+        direction-agnostic.
+\end{enumerate}
+
+% ---  Dataset  -----------------------------------------------------------
+\subsection{Datasets}
+
+\begin{table}[h]
+\centering
+\caption{Dataset used by Yao et~al.\ (2024).}
+\label{tab:pesd_data}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Property}        & \textbf{Detail} \\ \midrule
+Primary database          & Institute of Acoustics, Chinese Academy of Sciences \\
+Number of subjects        & 128 \\
+Spatial positions         & 734 per subject \\
+Listening-test directions & 32 \\
+LSD distortion levels     & 6 (ranging from 1 to 6\,dB) \\
+Test protocol             & MUSHRA-like \\
+Perceptual attributes     & Spatial quality, timbral quality \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The listening tests applied controlled magnitude-spectrum distortions to
+measured HRTFs at six LSD levels across 32~spatial directions, and
+participants rated both spatial and timbral attributes using a MUSHRA-like
+interface.
+
+% ---  Algorithm  ---------------------------------------------------------
+\subsection{Model / Algorithm --- The PESD Pipeline}
+
+PESD replaces the single-step LSD calculation with a five-stage
+auditory-model pipeline:
+
+\begin{enumerate}
+  \item \textbf{Spectral analysis.}
+        The HRTF magnitude spectra are decomposed through perceptually
+        motivated filter banks (analogous to cochlear frequency analysis),
+        replacing the uniform FFT-bin treatment of LSD.
+
+  \item \textbf{Threshold discrimination.}
+        Spectral differences that fall below the auditory JND are zeroed
+        out, preventing the metric from penalising imperceptible
+        distortions.
+
+  \item \textbf{Feature combination.}
+        The surviving supra-threshold spectral differences are aggregated
+        into a unified feature vector that emphasises perceptually salient
+        frequency regions.
+
+  \item \textbf{Binaural weighting.}
+        Interaural cues (ITD and ILD) are incorporated via direction-dependent
+        weights, reflecting the distinct roles of spatial and timbral
+        attributes in HRTF perception.
+
+  \item \textbf{Perceptual outcome estimation.}
+        The weighted features are mapped to a scalar quality score that
+        predicts the perceived similarity between a reference HRTF and a
+        distorted version.
+\end{enumerate}
+
+% ---  Results  -----------------------------------------------------------
+\subsection{Key Results}
+
+\begin{itemize}
+  \item PESD achieves \textbf{significantly higher Pearson correlation}
+        with listening-test ratings than LSD, spectral distortion~(SD),
+        and Mel-frequency cepstral distance~(MFCD).
+  \item PESD exhibits \textbf{lower prediction error} (RMSE) across both
+        spatial and timbral quality dimensions.
+  \item The threshold-discrimination stage alone accounts for a
+        substantial improvement, confirming that sub-threshold penalties
+        are a major source of LSD's poor perceptual alignment.
+  \item Results are consistent across the 32~evaluated directions,
+        demonstrating the benefit of direction-dependent binaural weighting.
+\end{itemize}
+
+% ---  Relevance  ---------------------------------------------------------
+\subsection{Relevance to the Thesis}
+
+The thesis proposes a Composite Perceptual Metric (CPM) that integrates
+LSD with ILD error, group delay error, and ITD error.  PESD pursues the
+same goal---closing the gap between objective measurement and perceptual
+quality---but through a fundamentally different strategy: rather than
+combining multiple independent metrics, it re-engineers the spectral
+distance computation itself with auditory-model stages.  PESD therefore
+serves as both a \emph{benchmark} against which CPM can be compared and a
+source of design principles (threshold gating, binaural weighting) that
+could inform future iterations of CPM.
+
+
+% =========================================================================
+\newpage
+\section{Paper 2: Zhang et~al.\ (2025) --- Perception-Informed Latent
+         HRTF Representations}
+% =========================================================================
+
+\subsection{Bibliographic Information}
+
+\begin{quote}
+Y.~Zhang, A.~Francl, R.~Gao, P.~Calamia, Z.~Duan, and
+I.~Ananthabhotla,
+``Towards perception-informed latent HRTF representations,''
+in \textit{Proc.\ IEEE WASPAA}, 2025 (Best Student Paper Award).
+arXiv: \href{https://arxiv.org/abs/2507.02815}{2507.02815}.
+\end{quote}
+
+% ---  Motivation  --------------------------------------------------------
+\subsection{Research Motivation}
+
+Deep-learning methods for HRTF personalisation typically compress measured
+HRTFs into a low-dimensional latent space via autoencoders trained to
+minimise spectral reconstruction error (e.g., Spectral Difference
+Error, SDE).  Zhang et~al.\ demonstrate that such latent spaces are
+\emph{not} perceptually faithful: two HRTFs that are close in latent
+distance can sound significantly different, and vice versa.  This
+disconnect limits the usefulness of latent-space nearest-neighbour
+selection for HRTF personalisation.
+
+% ---  Dataset  -----------------------------------------------------------
+\subsection{Datasets}
+
+\begin{table}[h]
+\centering
+\caption{Datasets used by Zhang et~al.\ (2025).}
+\label{tab:zhang_data}
+\begin{tabular}{@{}lll@{}}
+\toprule
+                          & \textbf{SS2 (primary)} & \textbf{HUTUBS (generalisation)} \\ \midrule
+Number of subjects        & 78                     & 96 \\
+Training / test split     & 65 / 13                & --- (test only) \\
+Purpose                   & Training \& evaluation & Cross-dataset generalisation \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The \textbf{Sound Sphere~2 (SS2)} database provides the primary training
+and evaluation data, with 65~subjects for training and 13~for testing.
+The \textbf{HUTUBS} database is used solely to evaluate cross-dataset
+generalisation.
+
+% ---  Architecture  ------------------------------------------------------
+\subsection{Model / Algorithm}
+
+\subsubsection{Baseline: Spectral Autoencoder}
+
+A standard autoencoder compresses per-direction HRTF magnitude spectra
+into a latent vector~$\mathbf{z}$ by minimising spectral reconstruction
+loss (L2 / SDE).  The authors show that this baseline yields limited
+Pearson correlation between latent distances and three objective
+perceptual metrics.
+
+\subsubsection{Proposed: INR-Based Perception-Informed Framework}
+
+\begin{enumerate}
+  \item \textbf{Implicit Neural Representation (INR).}
+        Following the ``HRTF~Field'' paradigm, a multilayer perceptron (MLP)
+        with 2048~hidden units models the HRTF magnitude as a continuous
+        function of spatial direction, avoiding the discretisation artefacts
+        of grid-based representations.
+
+  \item \textbf{Perception-informed latent space via MMDS.}
+        Instead of minimising spectral reconstruction error alone, the
+        latent code~$\mathbf{z}$ is supervised by a
+        \emph{Metric Multidimensional Scaling} (MMDS) loss that forces
+        pairwise latent distances to match pairwise perceptual distances
+        derived from objective metrics.
+
+  \item \textbf{Perceptual distance targets.}
+        The MMDS supervision uses distances computed from three objective
+        perceptual metrics:
+        \begin{itemize}
+          \item \textbf{Coloration} --- Predicted Binaural Coloration (PBC),
+          \item \textbf{Externalization} --- Auditory Externalization
+                Perception (AEP),
+          \item \textbf{Localization} --- Difference of Root Mean Square
+                Error (DRMSE) in polar angles.
+        \end{itemize}
+\end{enumerate}
+
+% ---  Results  -----------------------------------------------------------
+\subsection{Key Results}
+
+\begin{itemize}
+  \item \textbf{Baseline (SDE-optimised) correlations:}
+        Pearson~$r$ between latent distances and perceptual distances was
+        limited---reported values of approximately 0.78, 0.73, and
+        0.37 for coloration, localization, and externalization,
+        respectively.
+  \item \textbf{MMDS-supervised model:}
+        Significantly higher Pearson correlations across all three
+        perceptual dimensions, confirming that latent distances now
+        better predict perceptual similarity.
+  \item \textbf{HUTUBS generalisation:}
+        Improvements transfer to the unseen HUTUBS dataset, indicating
+        that the perception-informed structure is not dataset-specific.
+  \item \textbf{HRTF selection:}
+        When the latent space is used for nearest-neighbour HRTF
+        personalisation, the perception-informed model selects HRTFs that
+        are perceptually closer to the listener's own HRTF compared to the
+        SDE-only baseline.
+\end{itemize}
+
+% ---  Relevance  ---------------------------------------------------------
+\subsection{Relevance to the Thesis}
+
+Zhang et~al.'s work intersects with the thesis in two ways:
+
+\begin{enumerate}
+  \item \textbf{Metric alignment.}
+        Their finding that spectral reconstruction error alone is a poor
+        proxy for perceptual quality directly mirrors the thesis's
+        critique of LSD.  The three perceptual metrics they employ
+        (PBC, AEP, DRMSE) offer an alternative or complementary
+        evaluation vocabulary to the CPM components (LSD, ILD~error,
+        group delay error, ITD~error).
+
+  \item \textbf{Downstream application.}
+        The MMDS-supervised latent space could serve as a downstream
+        consumer of whatever composite metric the thesis develops:
+        if CPM proves to be a more reliable perceptual distance than
+        any single metric, it could replace or augment the PBC / AEP /
+        DRMSE targets used by Zhang et~al., further improving
+        personalisation.
+\end{enumerate}
+
+
+% =========================================================================
+\newpage
+\section{Comparative Summary}
+% =========================================================================
+
+\begin{table}[h]
+\centering
+\caption{Side-by-side comparison of the two reviewed papers.}
+\label{tab:comparison}
+\begin{tabular}{@{}p{3.5cm}p{5.5cm}p{5.5cm}@{}}
+\toprule
+& \textbf{Yao et~al.\ (PESD)} & \textbf{Zhang et~al.\ (MMDS)} \\
+\midrule
+\textbf{Core idea}
+  & Re-engineer spectral distance with auditory-model stages
+  & Supervise latent HRTF space with perceptual distances \\[6pt]
+\textbf{Approach}
+  & Signal-processing pipeline (5~stages)
+  & Deep learning (INR + MMDS loss) \\[6pt]
+\textbf{Primary dataset}
+  & Chinese Acad.\ Sci.\ (128 subj., 734 pos.)
+  & SS2 (78 subj.) \\[6pt]
+\textbf{Validation}
+  & MUSHRA listening tests (32 dir., 6 LSD levels)
+  & Objective perceptual metrics (PBC, AEP, DRMSE) \\[6pt]
+\textbf{Key metric}
+  & Pearson $r$ with listening-test scores
+  & Pearson $r$ between latent \& perceptual distances \\[6pt]
+\textbf{LSD critique}
+  & No thresholds, no freq.\ weighting, no dir.\ sensitivity
+  & Spectral recon.\ error $\neq$ perceptual similarity \\[6pt]
+\textbf{Relevance to CPM}
+  & Benchmark \& design principles
+  & Downstream consumer of composite metrics \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+% =========================================================================
+\section{Conclusion}
+% =========================================================================
+
+Both papers confirm the central premise of the thesis: LSD (and spectral
+reconstruction error more broadly) is an inadequate proxy for perceptual
+HRTF quality.  Yao et~al.\ tackle this at the metric level through a
+multi-stage auditory pipeline, while Zhang et~al.\ address it at the
+representation level by reshaping latent spaces with perceptual
+supervision.  Together they bracket the problem space in which the
+proposed Composite Perceptual Metric operates, providing both benchmark
+comparisons and potential integration pathways.
+
+
+% =========================================================================
+\bibliographystyle{plainnat}
+\bibliography{references_report}
+% =========================================================================
+
+\end{document}

@@ -1,0 +1,185 @@
+\begin{thebibliography}{25}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Gebru et~al.(2025)]{asaudio2025}
+Israel~D. Gebru et~al.
+\newblock A survey of advanced spatial audio research, 2025.
+\newblock URL \url{https://arxiv.org/abs/2508.10924}.
+
+\bibitem[Andreopoulou and Katz(2022)]{andreopoulou2022}
+Athanasios Andreopoulou and Brian F.~G. Katz.
+\newblock Perceptual impact on localization quality evaluations of common
+  pre-processing for non-individual head-related transfer functions.
+\newblock \emph{Journal of the Audio Engineering Society}, 70\penalty0
+  (5):\penalty0 340--354, 2022.
+\newblock \doi{10.17743/jaes.2022.0010}.
+
+\bibitem[Andreopoulou and Katz(2014)]{andreopoulou_icmc2014}
+Areti Andreopoulou and Brian F.~G. Katz.
+\newblock Evaluating {HRTF} similarity through subjective assessments: Factors
+  that can affect judgment.
+\newblock In \emph{Proceedings of the International Computer Music Conference
+  (ICMC)}, Athens, Greece, 2014.
+
+\bibitem[Zhang et~al.(2025)Zhang, Francl, Gao, Calamia, Duan, and
+  Ananthabhotla]{zhang2025}
+You~(Neil) Zhang, Andrew Francl, Ruohan Gao, Paul Calamia, Zhiyao Duan, and
+  Ishwarya Ananthabhotla.
+\newblock Towards perception-informed latent {HRTF} representations.
+\newblock \emph{arXiv preprint arXiv:2507.02815}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2507.02815}.
+
+\bibitem[{International Telecommunication Union}(2015)]{itu2015}
+{International Telecommunication Union}.
+\newblock Method for the subjective assessment of intermediate quality level of
+  audio systems.
+\newblock Recommendation BS.1534-3, ITU-R, 2015.
+
+\bibitem[hrt(2020)]{hrtf_measure_review2020}
+Measurement of head-related transfer functions: A review.
+\newblock \emph{Applied Sciences}, 10\penalty0 (14):\penalty0 5014, 2020.
+\newblock \doi{10.3390/app10145014}.
+
+\bibitem[Li et~al.(2024)]{itd_loss2024}
+Xinyu Li et~al.
+\newblock Interaural time difference loss for binaural target sound extraction.
+\newblock \emph{arXiv preprint arXiv:2408.00344}, 2024.
+\newblock URL \url{https://arxiv.org/abs/2408.00344}.
+
+\bibitem[Yost and Zhong(2024)]{audloc2024}
+William~A. Yost and Xiuyuan Zhong.
+\newblock Auditory localization: a comprehensive practical review.
+\newblock \emph{Frontiers in Psychology}, 15, 2024.
+\newblock \doi{10.3389/fpsyg.2024.1408073}.
+
+\bibitem[Blauert(1997)]{blauert1997}
+Jens Blauert.
+\newblock \emph{Spatial Hearing: The Psychophysics of Human Sound
+  Localization}.
+\newblock MIT Press, Cambridge, MA, 1997.
+
+\bibitem[Kulkarni and Colburn(1998)]{kulkarni1998}
+Abhijit Kulkarni and H.~Steven Colburn.
+\newblock Role of spectral detail in sound-source localization.
+\newblock \emph{Nature}, 396:\penalty0 747--749, 1998.
+\newblock \doi{10.1038/25526}.
+
+\bibitem[Kistler and Wightman(1992)]{kistler1992}
+Doris~J. Kistler and Frederic~L. Wightman.
+\newblock A model of head-related transfer functions based on principal
+  components analysis and minimum-phase reconstruction.
+\newblock \emph{Journal of the Acoustical Society of America}, 91\penalty0
+  (3):\penalty0 1637--1647, 1992.
+\newblock \doi{10.1121/1.402943}.
+
+\bibitem[Doma et~al.(2023)Doma, Bro\v{z}ov\'{a}, and Fels]{doma2023}
+Stepan Doma, Nikol Bro\v{z}ov\'{a}, and Janina Fels.
+\newblock Examining the interrelation behavior of distance metrics for
+  head-related transfer function evaluation: a case study.
+\newblock \emph{Acta Acustica}, 7:\penalty0 34, 2023.
+\newblock \doi{10.1051/aacus/2023026}.
+
+\bibitem[Engel et~al.(2022)Engel, Goodman, and Picinali]{engel2022}
+Isaac Engel, Dan F.~M. Goodman, and Lorenzo Picinali.
+\newblock Assessing {HRTF} preprocessing methods for {A}mbisonics rendering
+  through perceptual models.
+\newblock \emph{Acta Acustica}, 6:\penalty0 4, 2022.
+\newblock \doi{10.1051/aacus/2021049}.
+
+\bibitem[Reijniers et~al.(2014)Reijniers, Vanderelst, Jin, Carlile, and
+  Peremans]{reijniers2014}
+Jonas Reijniers, Dieter Vanderelst, Craig Jin, Simon Carlile, and Herbert
+  Peremans.
+\newblock An ideal-observer model of human sound localization.
+\newblock \emph{Biological Cybernetics}, 108\penalty0 (2):\penalty0 169--181,
+  2014.
+\newblock \doi{10.1007/s00422-014-0588-4}.
+
+\bibitem[Baumgartner and Majdak(2021)]{baumgartner2021}
+Robert Baumgartner and Piotr Majdak.
+\newblock Decision making in auditory externalization perception: model
+  predictions for static conditions.
+\newblock \emph{Acta Acustica}, 5\penalty0 (3), 2021.
+\newblock \doi{10.1051/aacus/2021019}.
+
+\bibitem[Jelfs et~al.(2011)Jelfs, Culling, and Lavandier]{jelfs2011}
+Sam Jelfs, John~F. Culling, and Mathieu Lavandier.
+\newblock Revision and validation of a binaural model for speech
+  intelligibility in noise.
+\newblock \emph{Hearing Research}, 275\penalty0 (1--2):\penalty0 96--104, 2011.
+\newblock \doi{10.1016/j.heares.2010.12.005}.
+
+\bibitem[Ananthabhotla et~al.(2021)Ananthabhotla, Ithapu, and
+  Brimijoin]{ananthabhotla2021}
+Ishwarya Ananthabhotla, Vamsi~K. Ithapu, and W.~Owen Brimijoin.
+\newblock A framework for designing head-related transfer function distance
+  metrics that capture localization perception.
+\newblock \emph{JASA Express Letters}, 1\penalty0 (4):\penalty0 044401, 2021.
+\newblock \doi{10.1121/10.0004277}.
+
+\bibitem[Armstrong et~al.(2024)Armstrong, Thresh, Murphy, and
+  Kearney]{armstrong2024}
+Cal Armstrong, Luke Thresh, Damian Murphy, and Gavin Kearney.
+\newblock Perceptually enhanced spectral distance metric for head-related
+  transfer function quality prediction.
+\newblock \emph{Journal of the Acoustical Society of America}, 156\penalty0
+  (6):\penalty0 4133--4152, 2024.
+\newblock \doi{10.1121/10.0034632}.
+
+\bibitem[Panah et~al.(2025)Panah, Barry, Ragano, Skoglund, and
+  Hines]{panah2025}
+Davood~S. Panah, Dan Barry, Alessandro Ragano, Jan Skoglund, and Andrew Hines.
+\newblock {BINAQUAL}: A full-reference objective localization similarity metric
+  for binaural audio.
+\newblock \emph{arXiv preprint arXiv:2505.11915}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2505.11915}.
+
+\bibitem[Wang et~al.(2021)Wang, Zhang, Duan, and Bocko]{wang2021}
+Yuxiang Wang, You~(Neil) Zhang, Zhiyao Duan, and Mark Bocko.
+\newblock Global {HRTF} personalization using anthropometric measures.
+\newblock In \emph{Proceedings of the 150th Audio Engineering Society
+  Convention}, 2021.
+
+\bibitem[Majdak et~al.(2022)Majdak, Hollomey, and Baumgartner]{majdak2022}
+Piotr Majdak, Clara Hollomey, and Robert Baumgartner.
+\newblock {AMT} 1.x: A toolbox for reproducible research in auditory modeling.
+\newblock \emph{Acta Acustica}, 6:\penalty0 19, 2022.
+\newblock \doi{10.1051/aacus/2022011}.
+
+\bibitem[Watanabe et~al.(2014)Watanabe, Takane, Suzuki, et~al.]{watanabe2014}
+Kanji Watanabe, Shouichi Takane, Yo{\-}iti Suzuki, et~al.
+\newblock Individual differences in head-related transfer functions measured at
+  {Tohoku University}.
+\newblock 2014.
+\newblock RIEC HRTF Database, Research Institute of Electrical Communication,
+  Tohoku University. Available at:
+  \url{https://www.ais.riec.tohoku.ac.jp/lab/db-hrtf/}.
+
+\bibitem[Andreopoulou and Katz(2016)]{andreopoulou2016}
+Athanasios Andreopoulou and Brian F.~G. Katz.
+\newblock Investigation on subjective {HRTF} rating repeatability.
+\newblock In \emph{Proceedings of the 140th Audio Engineering Society
+  Convention}, Paris, France, 2016.
+
+\bibitem[Armstrong et~al.(2018)Armstrong, Thresh, Murphy, and
+  Kearney]{armstrong2018}
+Cal Armstrong, Luke Thresh, Damian Murphy, and Gavin Kearney.
+\newblock A perceptual evaluation of individual and non-individual {HRTFs}: A
+  case study of the {SADIE II} database.
+\newblock \emph{Applied Sciences}, 8\penalty0 (11):\penalty0 2029, 2018.
+\newblock \doi{10.3390/app8112029}.
+
+\bibitem[Baumgartner et~al.(2014)Baumgartner, Majdak, and
+  Laback]{baumgartner2014}
+Robert Baumgartner, Piotr Majdak, and Bernhard Laback.
+\newblock Modeling sound-source localization in sagittal planes for human
+  listeners.
+\newblock \emph{Journal of the Acoustical Society of America}, 136\penalty0
+  (2):\penalty0 791--802, 2014.
+\newblock \doi{10.1121/1.4887447}.
+
+\end{thebibliography}

@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99e
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: 1235425-W01-01-Project-proposal.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+The style file: unsrtnat.bst
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Database file #1: references.bib
+Warning--empty author in hrtf_measure_review2020
+Warning--empty journal in watanabe2014
+You've used 25 entries,
+            2481 wiz_defined-function locations,
+            706 strings with 9281 characters,
+and the built_in function-call counts, 9172 in all, are:
+= -- 776
+> -- 488
+< -- 12
++ -- 190
+- -- 140
+* -- 719
+:= -- 1506
+add.period$ -- 93
+call.type$ -- 25
+change.case$ -- 49
+chr.to.int$ -- 25
+cite$ -- 28
+duplicate$ -- 469
+empty$ -- 833
+format.name$ -- 180
+if$ -- 1932
+int.to.chr$ -- 1
+int.to.str$ -- 26
+missing$ -- 24
+newline$ -- 151
+num.names$ -- 72
+pop$ -- 193
+preamble$ -- 1
+purify$ -- 25
+quote$ -- 0
+skip$ -- 268
+stack$ -- 0
+substring$ -- 292
+swap$ -- 50
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 172
+warning$ -- 2
+while$ -- 68
+width$ -- 0
+write$ -- 361
+(There were 2 warnings)

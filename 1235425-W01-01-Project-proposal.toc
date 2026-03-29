@@ -1,0 +1,30 @@
+\contentsline {section}{Abstract}{iii}{section*.1}%
+\contentsline {section}{Acknowledgements}{iv}{section*.2}%
+\contentsline {section}{Definition of Acronyms}{viii}{section*.6}%
+\contentsline {section}{Definition of Notations}{ix}{section*.7}%
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Overview of Spatial Audio and HRTF}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Motivation}{2}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Problem Statement}{4}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Objectives and Scope}{6}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Thesis Structure}{7}{subsection.1.5}%
+\contentsline {section}{\numberline {2}Literature Review}{9}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Introduction}{9}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Previous Work}{10}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Research Gaps}{15}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Summary}{16}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Methodology}{17}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Dataset}{17}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Degradation Conditions}{18}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Proposed Metrics}{19}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Evaluation Strategy}{21}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Implementation, Results, and Discussion}{22}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Experimental Setup}{22}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Degradation Conditions}{22}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Metrics Implementation}{23}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Results}{23}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Figures}{24}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Discussion}{24}{subsection.4.6}%
+\contentsline {section}{\numberline {5}Conclusion and Future Work}{28}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Conclusion}{28}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Future Work}{28}{subsection.5.2}%

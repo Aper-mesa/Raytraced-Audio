@@ -1,0 +1,16 @@
+\begin{thebibliography}{1}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Andreopoulou and Katz(2022)]{andreopoulou2022}
+Athanasios Andreopoulou and Brian F.~G. Katz.
+\newblock Perceptual impact on localization quality evaluations of common
+  pre-processing for non-individual head-related transfer functions.
+\newblock \emph{Journal of the Audio Engineering Society}, 70\penalty0
+  (5):\penalty0 340--354, 2022.
+\newblock \doi{10.17743/jaes.2022.0010}.
+
+\end{thebibliography}
