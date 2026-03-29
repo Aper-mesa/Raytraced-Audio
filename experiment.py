@@ -37,8 +37,9 @@ from scipy.ndimage import uniform_filter1d
 warnings.filterwarnings("ignore")
 
 # ─── Configuration ────────────────────────────────────────────────────────────
-HRTF_DIR   = r"C:/Users/Apermesa/Documents/GitHub/3710-HRTF"
-OUT_DIR    = r"C:/Users/Apermesa/Documents/GitHub/Raytraced-Audio/figures"
+BASE_DIR   = os.path.dirname(os.path.abspath(__file__))
+HRTF_DIR   = os.path.join(BASE_DIR, "HRTF Dataset")
+OUT_DIR    = os.path.join(BASE_DIR, "figures")
 N_SUBJECTS = 10      # use first N subjects per gender (total ≤ 20)
 FS         = 48000
 FREQ_LO    = 200     # Hz – lower bound for metric computation

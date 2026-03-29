@@ -1,0 +1,50 @@
+===============================================================================
+                    EXPERIMENT RESULTS SUMMARY
+              HRTF Objective Metric Evaluation
+    RIEC Database | 20 Subjects | 865 Spatial Positions | 48 kHz
+===============================================================================
+
+Table: Objective metric results across degradation conditions (mean +/- std)
+
++------------------+-----------------+-----------------+-----------------+-----------------+-------------------+
+| Condition        | LSD (dB)        | ILD Err (dB)    | GD Err (ms)     | ITD Err (ms)    | CPM               |
++------------------+-----------------+-----------------+-----------------+-----------------+-------------------+
+| Min-Phase        | 0.030 +/- 0.007 | 0.058 +/- 0.014 | 2.335 +/- 0.178 | 0.579 +/- 0.280 | 14.094 +/- 1.294  |
+| 1/3-Oct Smooth   | 2.332 +/- 0.204 | 3.122 +/- 0.241 | 0.176 +/- 0.018 | 0.014 +/- 0.013 |  1.880 +/- 0.152  |
+| 1/1-Oct Smooth   | 3.829 +/- 0.265 | 4.562 +/- 0.284 | 0.209 +/- 0.017 | 0.023 +/- 0.017 |  2.592 +/- 0.122  |
+| 12-bit Quant.    | 0.140 +/- 0.032 | 0.238 +/- 0.054 | 0.060 +/- 0.012 | 0.003 +/- 0.006 |  0.352 +/- 0.077  |
+| 8-bit Quant.     | 1.065 +/- 0.213 | 1.730 +/- 0.332 | 0.202 +/- 0.029 | 0.012 +/- 0.009 |  1.503 +/- 0.242  |
++------------------+-----------------+-----------------+-----------------+-----------------+-------------------+
+
+KEY FINDING ("LSD Blindspot"):
+  - Min-Phase has LOWEST  LSD  = 0.030 dB  (LSD says "best")
+  - Min-Phase has HIGHEST CPM  = 14.094    (CPM says "worst")
+  - Driver: Group Delay Error  = 2.335 ms  (10x larger than any other condition)
+
+This confirms the Andreopoulou & Katz (2022) hypothesis: magnitude-only metrics
+are fundamentally inadequate for HRTF quality prediction.
+
+===============================================================================
+Figure Descriptions:
+
+fig4_1_metric_comparison.png
+  Grouped bar chart showing normalized metric values across all 5 degradation
+  conditions. The "LSD blindspot" is annotated: min-phase has near-zero LSD
+  but the highest group delay error and CPM.
+
+fig4_2_lsd_vs_cpm.png
+  Scatter plot of LSD vs CPM for each condition. Min-phase appears in the
+  lower-left by LSD but upper region by CPM, demonstrating the fundamental
+  divergence between magnitude-only and composite perceptual metrics.
+
+fig4_3_spectral_comparison.png
+  Spectral comparison of original vs min-phase HRTF (Subject 1, left ear).
+  Top: magnitude spectra nearly identical (explaining near-zero LSD).
+  Bottom: magnitude difference is minimal, confirming LSD cannot detect
+  the phase distortion introduced by min-phase reconstruction.
+
+fig4_4_group_delay.png
+  Group delay comparison of original vs min-phase HRTF. The massive
+  divergence between the curves (especially 4-12 kHz pinna notch region)
+  reveals the phase distortion that LSD is blind to.
+===============================================================================

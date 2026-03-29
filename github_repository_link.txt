@@ -1,0 +1,9 @@
+GitHub Repository Link
+======================
+
+Full project code and resources are publicly accessible at:
+
+https://github.com/Aper-mesa/Raytraced-Audio
+
+To clone the repository:
+  git clone https://github.com/Aper-mesa/Raytraced-Audio.git
