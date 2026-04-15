@@ -85,7 +85,7 @@ Department of Computer Science and Technology Wenzhou-Kean University
 \vspace{0.5cm}
 
 \begin{center}
-Supervised By: Baha Ihnaini
+Supervised by: Dr.\ Baha Ihnaini
 \end{center}
 
 \vfill  % push to bottom of page
@@ -101,12 +101,12 @@ Supervised By: Baha Ihnaini
 \vspace*{2cm}
 
 \begin{center}
-\copyright June 2025
+\copyright June 2026
 \end{center}
 
 \vspace{3cm}
 
-\noindent Bachelor or Master of Science (2025) \hfill Wenzhou-Kean University
+\noindent Bachelor of Science (2026) \hfill Wenzhou-Kean University
 
 \vspace{0.3cm}
 
@@ -121,7 +121,7 @@ AUTHOR: & Shanghao Zou \\
          & B.Sc., Computer Science \\
          & Wenzhou-Kean University \\
          & Wenzhou, China \\[1em]
-SUPERVISORS: & Dr.\ Baha Ihnaini \\[1.5em]
+SUPERVISOR: & Dr.\ Baha Ihnaini \\[1.5em]
 NUMBER OF PAGES: & 45 \\
 \end{tabular}
 
@@ -135,7 +135,7 @@ NUMBER OF PAGES: & 45 \\
 \section*{Abstract}
 \addcontentsline{toc}{section}{Abstract}
 
-Head-Related Transfer Functions (HRTFs) are the cornerstone of binaural spatial audio rendering, yet their objective evaluation remains fundamentally flawed. The industry-standard metric, Log-Spectral Distortion (LSD), operates exclusively in the magnitude domain and has been shown to exhibit poor correlation with subjective perceptual quality, particularly when phase-altering processing such as minimum-phase reconstruction is applied. This thesis investigates the failure modes of LSD and proposes a Composite Perceptual Metric (CPM) that integrates four complementary objective measures: LSD, Interaural Level Difference (ILD) error, group delay error, and Interaural Time Difference (ITD) error. Using the RIEC HRTF Database from Tohoku University (20 subjects, 865 spatial positions per subject, 512-sample impulse responses at 48~kHz), five degradation conditions were applied to isolate specific metric blindspots: minimum-phase reconstruction, 1/3-octave and 1/1-octave magnitude smoothing, and 12-bit and 8-bit quantization. The central finding confirms the hypothesized ``LSD blindspot'': the minimum-phase condition achieves the lowest LSD of all conditions (0.030~dB), yet produces the highest CPM score (14.094) due to a group delay error of 2.335~ms---over 10$\times$ larger than any other condition. This result provides direct empirical support for the Andreopoulou and Katz (2022) hypothesis that magnitude-only metrics are fundamentally inadequate for HRTF quality prediction. The proposed CPM framework, by incorporating phase-sensitive and binaural cue-based components, captures both magnitude-domain and phase-domain degradations within a single scalar score, offering a more reliable proxy for perceptual HRTF quality assessment.
+Head-Related Transfer Functions (HRTFs) are the cornerstone of binaural spatial audio rendering, yet their objective evaluation remains fundamentally flawed. The industry-standard metric, Log-Spectral Distortion (LSD), operates exclusively in the magnitude domain and has been shown to exhibit poor correlation with subjective perceptual quality, particularly when phase-altering processing such as minimum-phase reconstruction is applied. This limitation undermines the reliability of current HRTF personalization and compression pipelines that rely on LSD as their primary quality criterion. This thesis investigates the failure modes of LSD and proposes a Composite Perceptual Metric (CPM) that integrates four complementary objective measures: LSD, Interaural Level Difference (ILD) error, group delay error, and Interaural Time Difference (ITD) error. Using the RIEC HRTF Database from Tohoku University (20 subjects, 865 spatial positions per subject, 512-sample impulse responses at 48~kHz), five degradation conditions were applied to isolate specific metric blindspots: minimum-phase reconstruction, 1/3-octave and 1/1-octave magnitude smoothing, and 12-bit and 8-bit quantization. The central finding confirms the hypothesized ``LSD blindspot'': the minimum-phase condition achieves the lowest LSD of all conditions (0.030~dB), yet produces the highest CPM score (14.094) due to a group delay error of 2.335~ms---over 10$\times$ larger than any other condition. This result provides direct empirical support for the Andreopoulou and Katz (2022) hypothesis that magnitude-only metrics are fundamentally inadequate for HRTF quality prediction. The proposed CPM framework, by incorporating phase-sensitive and binaural cue-based components, captures both magnitude-domain and phase-domain degradations within a single scalar score, offering a more reliable proxy for perceptual HRTF quality assessment. Future work will validate the CPM against subjective listening tests using MUSHRA methodology to establish its correlation with human perception.
 
 \vspace{0.5cm}
 
@@ -275,13 +275,13 @@ This need for selection and processing, in turn, necessitates a reliable method 
 
 \textbf{Subjective Assessment (The ``Ground Truth''):} This paradigm relies on human listeners to evaluate the perceptual quality of a binaural rendering. As the ``ground truth,'' these methods are perceptually valid but are notoriously time-consuming, expensive, and subject to listener variability \cite{andreopoulou_icmc2014}. Methodologies are diverse, including:
 
-\textbf{Localization Pointing Tasks:} Listeners identify the perceived location of static or dynamic sound sources, and performance is measured by localization error (azimuthal, polar, great-circle) and front-back confusion rates \cite{zhang2025}.
+\begin{description}[style=unboxed, leftmargin=1.5em]
+  \item[Localization Pointing Tasks:] Listeners identify the perceived location of static or dynamic sound sources, and performance is measured by localization error (azimuthal, polar, great-circle) and front-back confusion rates \cite{zhang2025}.
+  \item[Trajectory Rating:] An ``indirect'' method where listeners rate the ``spatial accuracy'' or ``quality'' of a moving sound source (e.g., a trajectory) against a description of its intended path. This is often used as a measure of global spatial quality \cite{andreopoulou2022}.
+  \item[Comparative Quality Assessment:] Listeners rate attributes like timbral coloration, externalization, and overall preference, often using standardized methods like MUSHRA (MUlti Stimulus test with Hidden Reference and Anchor) \cite{itu2015}.
+\end{description}
 
-\textbf{Trajectory Rating:} An ``indirect'' method where listeners rate the ``spatial accuracy'' or ``quality'' of a moving sound source (e.g., a trajectory) against a description of its intended path. This is often used as a measure of global spatial quality \cite{andreopoulou2022}.
-
-\textbf{Comparative Quality Assessment:} Listeners rate attributes like timbral coloration, externalization, and overall preference, often using standardized methods like MUSHRA (MUlti Stimulus test with Hidden Reference and Anchor) \cite{itu2015}.
-
-\textbf{Objective Metrics (The ``Proxy''):} This paradigm uses computational, signal-based metrics to quantify the difference between a ``reference'' (e.g., an individual's measured HRTF) and a ``test'' (e.g., a processed or personalized HRTF). These methods are fast, perfectly repeatable, and computationally inexpensive. The most ubiquitous metric in HRTF research and development is Spectral Distortion (SD), or its logarithmic variant, Log-Spectral Distortion (LSD) \cite{hrtf_measure_review2020}. SD is typically defined as the Mean Square Error (MSE) between the magnitude (or log-magnitude) spectra of the two HRTFs, averaged across frequency and spatial directions \cite{hrtf_measure_review2020}.
+\textbf{Objective Metrics (The ``Proxy''):} This paradigm uses computational, signal-based metrics to quantify the difference between a ``reference'' (e.g., an individual's measured HRTF) and a ``test'' (e.g., a processed or personalized HRTF). These methods are fast, perfectly repeatable, and computationally inexpensive. The most ubiquitous metric in HRTF research and development is Spectral Distortion (SD), which measures the RMS difference of magnitude spectra between two HRTFs \cite{hrtf_measure_review2020}. Its logarithmic variant, Log-Spectral Distortion (LSD), operates on log-magnitude spectra and better matches the ear's logarithmic intensity perception. Throughout this thesis, ``LSD'' refers specifically to the log-magnitude variant (Equation~\ref{eq:lsd}), while ``SD'' is used as the general umbrella term encompassing both formulations. Both metrics share the same fundamental limitation: they are computed exclusively in the magnitude domain, averaged across frequency and spatial directions \cite{hrtf_measure_review2020}.
 
 This thesis addresses the central conflict that defines the research topic: the consistent and well-documented poor correlation between these two paradigms \cite{zhang2025}. The objective metrics that the audio engineering community relies on for system design, data reduction, and optimization are fundamentally unreliable predictors of the subjective, perceptual outcome. This disconnect forms the primary obstacle to developing truly effective HRTF personalization and processing techniques.
 
@@ -309,22 +309,27 @@ This finding is not merely an incremental adjustment but a fundamental invalidat
 
 \subsection{Problem Statement}
 
-The quest for perceptual transparency in virtual auditory displays (VADs) faces a critical bottleneck: the fundamental misalignment between the objective metrics used to optimize spatial audio systems and the subjective reality of human hearing. At the core of this disconnect is the Head-Related Transfer Function (HRTF), a high-dimensional acoustic filter that encapsulates the unique diffractive, reflective, and resonant properties of an individual's anatomy---specifically the torso, head, and pinnae. These filters are the mathematical bridge between a sound source and the eardrum, carrying the necessary cues for spatial localization, externalization, and immersion \cite{asaudio2025}. However, the engineering paradigms governing the selection, compression, and personalization of HRTFs currently rely on evaluation metrics that are demonstrably unreliable predictors of perceptual quality.
+The industry-standard metrics---Mean Square Error (MSE) and Log-Spectral Distortion (LSD)---are derived from linear system theory and quantify ``error'' as the global spectral difference between a reference HRTF and a processed approximation, averaging magnitude deviations across all frequency bands and spatial directions \cite{andreopoulou2022}. This approach operates on the implicit, and incorrect, assumption that the human auditory system weights all spectral distortions equally. In reality, auditory perception is highly non-linear, binaural, and feature-specific: the brain perceives specific psychoacoustic cues such as ITD for low-frequency azimuth, ILD for lateralization, and sparse, high-frequency spectral notches (5--10~kHz) for elevation and front-back discrimination \cite{asaudio2025}. Current metrics are blind to this hierarchy of features. Consequently, a processing artifact that obliterates a critical 7~kHz pinna notch may yield a numerically lower, ``better'' LSD score than a benign 2~dB gain fluctuation in a non-critical band.
 
-The primary problem is that the industry-standard metrics---Mean Square Error (MSE) and Log-Spectral Distortion (LSD)---are derived from linear system theory and treat the HRTF as a simple signal transmission problem. These metrics quantify ``error'' as the global spectral difference between a reference HRTF and a processed approximation, averaging magnitude deviations across all frequency bands and spatial directions \cite{andreopoulou2022}. This approach operates on the implicit, and incorrect, assumption that the human auditory system functions as a linear, time-invariant spectrum analyzer that weights all spectral distortions equally. In reality, auditory perception is highly non-linear, binaural, and feature-specific. The brain does not perceive ``mean square error''; it perceives specific psychoacoustic cues such as Interaural Time Differences (ITD) for low-frequency azimuth, Interaural Level Differences (ILD) for lateralization, and sparse, high-frequency spectral notches (5--10~kHz) for elevation and front-back discrimination \cite{asaudio2025}. Current metrics are blind to this hierarchy of features. Consequently, a processing artifact that obliterates a critical 7~kHz pinna notch (destroying elevation perception) may yield a numerically lower, ``better'' LSD score than a benign 2~dB gain fluctuation in a non-critical frequency band. This mathematical equivalence creates a dangerous ``blind spot'' where critical spatial cues can be degraded without triggering objective alarms.
+This metric failure manifests as a ``perceptual cliff'': minute objective errors---often well within accepted thresholds of ``perceptual transparency'' (e.g., SD $< 1$~dB)---can precipitate a catastrophic collapse in subjective quality. Andreopoulou and Katz \cite{andreopoulou2022} demonstrated that minimum-phase approximations, despite achieving spectrally ``perfect'' LSD scores, resulted in a near-total decorrelation of subjective rankings ($r \approx 0.5$). The minimum-phase simplification preserved the \textit{magnitude} spectrum (satisfying LSD) but destroyed the temporal fine structure and group delay cues essential for localization and externalization. This creates a systemic risk: algorithms are being trained to minimize a loss function (LSD) that does not correlate with perceptual realism \cite{itd_loss2024}.
 
-This metric failure manifests as a ``perceptual cliff,'' a phenomenon where minute objective errors---often well within the accepted thresholds of ``perceptual transparency'' (e.g., SD $< 1$~dB)---precipitate a catastrophic collapse in subjective quality. This was definitively exposed by Andreopoulou and Katz \cite{andreopoulou2022}, who demonstrated that minimum-phase approximations of HRTFs, despite achieving spectrally ``perfect'' LSD scores, resulted in a near-total decorrelation of subjective spatial rankings ($r \approx 0.5$). By discarding the mixed-phase components inherent in the acoustic response of the pinna, the minimum-phase simplification preserved the \textit{magnitude} spectrum (satisfying the LSD metric) but destroyed the temporal fine structure and group delay cues essential for crisp localization and externalization. The metric's inability to detect this phase distortion meant that it effectively validated a processing technique that degraded the user experience. This creates a systemic risk in the development of ``scalable'' spatial audio: algorithms are being trained to minimize a loss function (LSD) that does not correlate with the desired output (perceptual realism), effectively optimizing for mathematical precision at the expense of auditory fidelity \cite{itd_loss2024}.
+Furthermore, the prevalent evaluation paradigm is fundamentally monaural, assessing each ear in isolation. This architecture ignores the binaural nature of spatial hearing, where the \textit{difference} between the ears is often more significant than the absolute signal at either ear \cite{andreopoulou_icmc2014}. A 1~dB boost in the left ear and a 1~dB cut in the right ear might average out to a low monaural error, but they combine to create a 2~dB ILD shift---a perceptually significant change in perceived source location.
 
-Furthermore, the prevalent evaluation paradigm is fundamentally monaural, assessing the left and right channels in isolation and averaging the resulting error scores. This architecture ignores the binaural nature of spatial hearing, where the \textit{difference} and \textit{coherence} between the ears are often more significant than the absolute signal at either ear. Phenomena such as the ``better-ear effect,'' masking release, and the perception of auditory spaciousness are driven by the interaction between the two signals \cite{andreopoulou_icmc2014}. A monaural metric like LSD cannot account for errors in the Interaural Cross-Correlation (IACC) or subtle shifts in ILD that occur when spectral errors in the left and right ears are anti-correlated. For instance, a 1~dB boost in the left ear and a 1~dB cut in the right ear might average out to a low monaural error, but they combine to create a 2~dB shift in the ILD, causing a perceptually significant shift in the perceived source location. By failing to capture these binaural interactions, standard metrics miss the emergence of spatial attributes that only exist in the combined auditory stream.
-
-The consequences of this ``false positive'' rating (where bad HRTFs are rated as good) are compounded by ``false negatives,'' where perceptually beneficial modifications are penalized. Techniques such as magnitude warping, contrast enhancement, or spectral exaggeration---often used to assist listeners with hearing deficits or to overcome headphone coloration---inevitably increase the spectral distance from the original measurement, resulting in poor LSD scores \cite{audloc2024}. Because the metric penalizes \textit{any} deviation from the reference equally, it cannot distinguish between distortion that destroys a cue and modification that enhances it. This indiscriminacy forces researchers to rely on expensive, time-consuming subjective listening tests (e.g., MUSHRA, localization pointing tasks) as the only reliable ground truth, effectively creating a bottleneck that stifles the iterative design of personalization algorithms \cite{zhang2025}.
-
-The problem is further exacerbated by the increasing reliance on machine learning for HRTF generation and upsampling. Deep learning models, such as autoencoders or Generative Adversarial Networks (GANs), require differentiable loss functions for training. When these models are trained using MSE or LSD as the loss function---as is the standard practice---they are explicitly incentivized to produce spectrally smooth, ``average'' HRTFs that minimize global variance but often lack the sharp, idiosyncratic spectral features necessary for individual externalization \cite{itd_loss2024}. The model learns to ``play it safe'' to satisfy the metric, resulting in spatial audio that sounds ``in-the-head'' or muddy. Without a new evaluation framework that integrates psychoacoustic models, binaural analysis, and feature-weighted error calculation, the field remains unable to close the loop between signal processing and human perception, leaving the promise of truly immersive, personalized auditory environments unfulfilled.
+The consequences of such ``false positive'' ratings are compounded by ``false negatives,'' where perceptually beneficial modifications are penalized. Because LSD penalizes \textit{any} deviation from the reference equally, it cannot distinguish between distortion that destroys a cue and modification that enhances it \cite{audloc2024}. This indiscriminacy forces researchers to rely on expensive subjective listening tests as the only reliable ground truth, creating a bottleneck that stifles the iterative design of personalization algorithms \cite{zhang2025}. The problem is further exacerbated by the increasing reliance on machine learning for HRTF generation: when deep learning models are trained using MSE or LSD as the loss function, they are incentivized to produce spectrally smooth, ``average'' HRTFs that lack the sharp, idiosyncratic spectral features necessary for individual externalization \cite{itd_loss2024}.
 
 
 \subsection{Objectives and Scope}
 
-This research aims to analyze the specific failure modes of current metrics and propose a framework for perceptually-informed evaluation.
+This research aims to analyze the specific failure modes of current metrics and propose a framework for perceptually-informed evaluation. The specific objectives are:
+
+\begin{enumerate}
+  \item \textbf{Demonstrate the LSD blindspot:} Empirically confirm that LSD fails to detect phase-domain distortions by applying controlled degradation conditions---particularly minimum-phase reconstruction---to a large HRTF database.
+  \item \textbf{Develop phase-sensitive metrics:} Introduce group delay error and ITD error as complementary metrics that capture the phase and temporal distortions that LSD misses.
+  \item \textbf{Propose a Composite Perceptual Metric (CPM):} Integrate magnitude-domain (LSD), binaural (ILD error), and phase-domain (group delay error, ITD error) components into a single weighted scalar score.
+  \item \textbf{Validate the composite framework:} Demonstrate that the CPM correctly identifies degradation conditions that LSD misjudges, while maintaining sensitivity to magnitude-domain distortions.
+\end{enumerate}
+
+The scope of this thesis is restricted to objective analysis. Three fundamental limitations of SD/LSD motivate the proposed metrics:
 
 SD and LSD are, by definition, calculated on the magnitude (or log-magnitude) spectra \cite{hrtf_measure_review2020}. They are fundamentally blind to all phase information. This is a critical, and often fatal, flaw. The long-held assumption that the human auditory system is ``phase-deaf'' is a dangerous oversimplification, especially in the context of HRTFs \cite{blauert1997}. While less sensitive to absolute phase, the relative phase between the ears forms the Interaural Time Difference (ITD), which is the dominant psychoacoustic cue for localizing sounds in the horizontal plane, particularly at low frequencies \cite{audloc2024}. Furthermore, the minimum-phase approximation itself, while a common simplification, is not perceptually neutral and can lead to inferior localization performance for directions near the interaural axis \cite{kulkarni1998}. The Andreopoulou \& Katz study \cite{andreopoulou2022} provides the ultimate demonstration: by only modifying phase-related components (and introducing co-incident spectral smoothing), subjective perception was radically altered. The magnitude-only SD metric, by its very design, was incapable of detecting this critical perceptual change.
 
@@ -375,7 +380,7 @@ The failure must, therefore, stem from the two ``subtle'' forms of information t
 
 The quest to quantify the similarity between Head-Related Transfer Functions (HRTFs) has evolved from simple signal processing heuristics to complex, data-driven perceptual models. This section reviews the trajectory of HRTF evaluation, highlighting the limitations of traditional metrics and the emergence of modern, perception-based frameworks.
 
-\textbf{2.2.1 The Era of Spectral Distortion and Linear Metrics (1990s -- 2010s)}
+\subsubsection{The Era of Spectral Distortion and Linear Metrics (1990s -- 2010s)}
 
 For decades, the dominant paradigm in HRTF evaluation has been the calculation of spectral differences between a reference (measured) HRTF and a test (processed/modeled) HRTF. The most ubiquitous metric is Spectral Distortion (SD), often calculated as the Root Mean Square (RMS) difference of the log-magnitude spectra:
 
@@ -390,7 +395,7 @@ Early validation attempts focused on establishing ``just noticeable difference''
 
 Alternative distance metrics attempted to refine SD. The Log-Spectral Distortion (LSD) emphasizes differences in the logarithmic domain, better matching the ear's dynamic range intensity perception. Other variants included the Inter-Subject Spectral Difference (ISSD) and correlation-based metrics \cite{doma2023}. However, a comprehensive 2023 study by Doma, Bro\v{z}ov\'{a}, and Fels, titled \textit{``Examining the interrelation behavior of distance metrics for head-related transfer function evaluation,''} systematically analyzed seven common metrics (including MSE, Critical-Band MSE, and Mel-frequency Cepstral Distortion). Their analysis, performed on the ITA HRTF database using PCA-based reconstruction errors, revealed a critical redundancy: most metrics were highly correlated with one another, providing little unique information. More importantly, the study concluded that while these metrics could describe signal differences, they exhibited ``case-dependency'' that made them unreliable predictors of audibility across different types of spectral distortions \cite{doma2023}. They argued that no single linear metric could suffice, suggesting that the complexity of auditory perception required a ``higher-level metric'' or a combination of descriptors.
 
-\textbf{2.2.2 The Breakdown of the Objective-Subjective Correlation}
+\subsubsection{The Breakdown of the Objective-Subjective Correlation}
 
 The pivotal critique of magnitude-only metrics was crystallized in the 2022 study by Andreopoulou and Katz, \textit{``Perceptual Impact on Localization Quality Evaluations of Common Pre-Processing for Non-Individual Head-Related Transfer Functions''} \cite{andreopoulou2022}. This work serves as the primary motivation for the current research.
 
@@ -404,7 +409,7 @@ Andreopoulou and Katz designed an experiment explicitly to stress-test the corre
 
 This study definitively proved that SD is blind to phase distortion and fine spectral structure loss---two factors that are critical for maintaining the stability and plausibility of a virtual sound source \cite{andreopoulou2022}. It highlighted that the ``unnecessary'' details discarded by minimum-phase assumptions are, in fact, perceptually salient.
 
-\textbf{2.2.3 Computational Auditory Models (CAMs) as Metrics}
+\subsubsection{Computational Auditory Models (CAMs) as Metrics}
 
 In response to the failure of signal-based metrics, researchers began employing Computational Auditory Models (CAMs)---sophisticated algorithms that simulate the physiological processing of the ear and brain---as evaluation tools. Instead of measuring the distance between signals, these methods measure the distance between the \textit{predicted internal representations} of those signals.
 
@@ -418,7 +423,7 @@ Engel et al.\ (2022) \cite{engel2022} pioneered the systematic use of the Audito
 
 Engel et al.\ demonstrated that these models could successfully differentiate between preprocessing methods (e.g., MagLS vs.\ Spline interpolation) even when standard spectral metrics showed ambiguous results \cite{engel2022}. The study validated that the ``BiMagLS'' method (Bilateral Magnitude Least Squares) preserved localization cues better than traditional approaches. This work established a new methodology: using ``virtual listeners'' (CAMs) to run thousands of trials that would be impossible with human subjects.
 
-\textbf{2.2.4 Data-Driven and Learned Metrics}
+\subsubsection{Data-Driven and Learned Metrics}
 
 A parallel stream of research has moved towards \textit{learning} the perceptual metric directly from data, leveraging machine learning (ML) to bridge the gap between signal and perception.
 
@@ -434,7 +439,7 @@ They demonstrated that this ``Neural Metric'' aligned significantly better with 
 
 Building on this concept, Zhang et al.\ (2025) \cite{zhang2025} recently proposed \textit{``Towards Perception-Informed Latent HRTF Representations.''} They addressed the issue that most Deep Learning models for HRTF generation (e.g., autoencoders) are trained with an MSE loss function, which inherently produces spectrally smooth, ``blurry'' HRTFs that lack perceptual detail. They introduced a supervision method using Metric Multidimensional Scaling (MMDS). By calculating a ``perceptual distance matrix'' (using auditory models like Baumgartner's) and forcing the latent space of the Autoencoder to respect these distances, they ensured that the generated HRTFs were perceptually optimized, not just mathematically averaged \cite{zhang2025}.
 
-\textbf{2.2.5 Recent Advances: PESD and BINAQUAL (2024--2025)}
+\subsubsection{Recent Advances: PESD and BINAQUAL (2024--2025)}
 
 The most recent literature has seen the introduction of specialized metrics designed to replace SD entirely.
 
@@ -614,13 +619,13 @@ Identical to Condition 4, but with 8-bit resolution ($2^8 = 256$ levels), introd
 
 \subsection{Metrics Implementation}
 
-All four metrics (LSD, ILD error, GD error, ITD error) and the CPM composite were implemented as described in Section~3.3. The group delay computation used the numerically stable conjugate-division formulation (Equation~\ref{eq:gd}), with a regularization constant of $\epsilon = 10^{-8}$ and group delay values clipped to $[-50, 50]$~ms to suppress unphysical spikes at spectral nulls. ITD was estimated via the full cross-correlation method. The CPM was computed using the weights and normalization references specified in Equation~\ref{eq:cpm}.
+All four metrics (LSD, ILD error, GD error, ITD error) and the CPM composite were implemented as described in Section~3.3. LSD was computed using Equation~\ref{eq:lsd}, ILD error using Equation~\ref{eq:ild}, and ITD via the full cross-correlation method (Equation~\ref{eq:itd}). The group delay computation used the numerically stable conjugate-division formulation (Equation~\ref{eq:gd}), with a regularization constant of $\epsilon = 10^{-8}$ and group delay values clipped to $[-50, 50]$~ms to suppress unphysical spikes at spectral nulls. The CPM was computed using the weights and normalization references specified in Equation~\ref{eq:cpm}.
 
 \subsection{Results}
 
 Table~\ref{tab:results} presents the mean and standard deviation of each metric across 20 subjects for all five degradation conditions.
 
-\begin{table}[h!]
+\begin{table}[htbp]
 \centering
 \caption{Objective metric results across degradation conditions (mean $\pm$ std, $n = 20$ subjects).}
 \label{tab:results}
@@ -641,28 +646,28 @@ The central finding is immediately apparent: \textbf{the minimum-phase condition
 
 \subsection{Figures}
 
-\begin{figure}[h!]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.95\textwidth]{figures/fig4_1_metric_comparison.png}
 \caption{Grouped bar chart showing normalized metric values across all five degradation conditions. The ``LSD blindspot'' is annotated: the minimum-phase condition has near-zero LSD but the highest group delay error and CPM of all conditions.}
 \label{fig:metric_comparison}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.75\textwidth]{figures/fig4_2_lsd_vs_cpm.png}
 \caption{Scatter plot of LSD vs.\ CPM for each degradation condition. The minimum-phase condition (lower-left corner by LSD, upper region by CPM) demonstrates the fundamental divergence between magnitude-only and composite perceptual metrics. The dashed diagonal represents hypothetical LSD--CPM agreement.}
 \label{fig:lsd_vs_cpm}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.95\textwidth]{figures/fig4_3_spectral_comparison.png}
 \caption{Spectral comparison of original vs.\ minimum-phase HRTF (Subject~1, left ear, averaged over 20 spatial directions). Top: Magnitude spectra are nearly identical, explaining the near-zero LSD. Bottom: The magnitude difference is minimal across the entire frequency range, including the pinna notch region (4--12~kHz, shaded). This visual confirms that LSD, which operates solely on magnitude, is fundamentally incapable of detecting the phase distortion introduced by minimum-phase reconstruction.}
 \label{fig:spectral_comparison}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.95\textwidth]{figures/fig4_4_group_delay.png}
 \caption{Group delay comparison of original vs.\ minimum-phase HRTF (Subject~1, left ear, averaged over 20 spatial directions). The massive divergence between the two curves---particularly in the 4--12~kHz pinna notch region (shaded)---reveals the phase distortion that LSD is blind to. The group delay error metric (GD Err) captures this divergence, driving the minimum-phase condition's high CPM score.}
@@ -672,10 +677,10 @@ The central finding is immediately apparent: \textbf{the minimum-phase condition
 \subsection{Discussion}
 
 \textbf{Validation of the Andreopoulou \& Katz Hypothesis.}
-The results provide direct, quantitative support for the hypothesis advanced by Andreopoulou and Katz \cite{andreopoulou2022}: magnitude-only metrics such as LSD are fundamentally inadequate for HRTF quality prediction when phase-altering processing is involved. In their 2022 study, the authors observed that minimum-phase reconstruction caused a near-total decorrelation of subjective spatial rankings ($r \approx 0.5$) despite achieving SD $< 1$~dB. Our experiment reproduces this ``LSD blindspot'' on a completely different database (RIEC vs.\ LISTEN/CIPIC used in the original study), using a purely objective methodology. The minimum-phase condition achieves LSD~$= 0.030$~dB---the \textit{lowest} of all conditions, lower even than 12-bit quantization (LSD~$= 0.140$~dB)---yet produces the \textit{highest} CPM of 14.094. If a system were to use LSD as its sole evaluation criterion, it would rank the minimum-phase condition as the ``best'' processing, when in reality it is the most severely degraded by the composite metric.
+The results provide direct, quantitative support for the hypothesis advanced by Andreopoulou and Katz \cite{andreopoulou2022}: magnitude-only metrics such as LSD are fundamentally inadequate for HRTF quality prediction when phase-altering processing is involved. In their 2022 study, the authors observed that minimum-phase reconstruction caused a near-total decorrelation of subjective spatial rankings ($r \approx 0.5$) despite achieving SD $< 1$~dB. Our experiment reproduces this ``LSD blindspot'' on a completely different database (RIEC vs.\ LISTEN used in the original study), using a purely objective methodology. The minimum-phase condition achieves LSD~$= 0.030$~dB---the \textit{lowest} of all conditions, lower even than 12-bit quantization (LSD~$= 0.140$~dB)---yet produces the \textit{highest} CPM of 14.094 (Figure~\ref{fig:metric_comparison}). This fundamental divergence between magnitude-only and composite evaluation is shown in Figure~\ref{fig:lsd_vs_cpm}. If a system were to use LSD as its sole evaluation criterion, it would rank the minimum-phase condition as the ``best'' processing, when in reality it is the most severely degraded by the composite metric.
 
 \textbf{Group Delay Error as the Key Discriminator.}
-The group delay error is the metric component responsible for detecting the minimum-phase distortion. At 2.335~ms, it is an order of magnitude larger than any other condition's GD error (the next highest is 1/1-octave smoothing at 0.209~ms). This confirms the theoretical expectation: minimum-phase reconstruction preserves the magnitude spectrum exactly (by construction) but replaces the original excess phase with a synthetic minimum-phase response, destroying the group delay structure. The group delay metric, being derived from the phase spectrum, is sensitive to exactly this type of distortion. The large GD error also propagates through the CPM via the highest weight ($W_{\mathrm{GD}} = 0.35$) and the smallest normalization reference ($\mathrm{GD}_{\mathrm{ref}} = 0.08$~ms), amplifying its contribution to the composite score.
+The group delay error is the metric component responsible for detecting the minimum-phase distortion. At 2.335~ms, it is an order of magnitude larger than any other condition's GD error (the next highest is 1/1-octave smoothing at 0.209~ms). As shown in Figure~\ref{fig:spectral_comparison}, the magnitude spectra of the original and minimum-phase HRTFs are nearly identical, explaining the near-zero LSD. However, Figure~\ref{fig:group_delay} reveals a massive divergence in group delay, particularly in the 4--12~kHz pinna notch region. This confirms the theoretical expectation: minimum-phase reconstruction preserves the magnitude spectrum exactly (by construction) but replaces the original excess phase with a synthetic minimum-phase response, destroying the group delay structure. The group delay metric, being derived from the phase spectrum, is sensitive to exactly this type of distortion. The large GD error also propagates through the CPM via the highest weight ($W_{\mathrm{GD}} = 0.35$) and the smallest normalization reference ($\mathrm{GD}_{\mathrm{ref}} = 0.08$~ms), amplifying its contribution to the composite score.
 
 \textbf{Magnitude-Domain Metrics Behave as Expected.}
 For the four non-minimum-phase conditions, LSD and ILD error behave as expected: they increase monotonically with degradation severity (12-bit $<$ 8-bit $<$ 1/3-oct $<$ 1/1-oct). The CPM also increases monotonically for these conditions. This confirms that the proposed composite metric does not sacrifice sensitivity to magnitude-domain distortions in order to detect phase-domain distortions---it captures both.

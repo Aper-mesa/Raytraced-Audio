@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99e
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: 1235425-W01-01-Thesis.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+The style file: unsrtnat.bst
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Database file #1: references.bib
+Warning--empty journal in watanabe2014
+You've used 25 entries,
+            2481 wiz_defined-function locations,
+            706 strings with 9247 characters,
+and the built_in function-call counts, 9250 in all, are:
+= -- 781
+> -- 503
+< -- 13
++ -- 194
+- -- 144
+* -- 721
+:= -- 1530
+add.period$ -- 94
+call.type$ -- 25
+change.case$ -- 49
+chr.to.int$ -- 25
+cite$ -- 26
+duplicate$ -- 469
+empty$ -- 831
+format.name$ -- 187
+if$ -- 1945
+int.to.chr$ -- 1
+int.to.str$ -- 26
+missing$ -- 24
+newline$ -- 152
+num.names$ -- 75
+pop$ -- 192
+preamble$ -- 1
+purify$ -- 25
+quote$ -- 0
+skip$ -- 269
+stack$ -- 0
+substring$ -- 291
+swap$ -- 50
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 172
+warning$ -- 1
+while$ -- 70
+width$ -- 0
+write$ -- 363
+(There was 1 warning)

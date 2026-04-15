@@ -9,7 +9,14 @@
       "Bash(cmd.exe /c \"where pdflatex xelatex lualatex 2>&1\")",
       "Bash(pandoc:*)",
       "Bash(pip list:*)",
-      "Bash(find C:/Users/Apermesa/Documents/GitHub/3710-HRTF -name *.sofa)"
+      "Bash(find C:/Users/Apermesa/Documents/GitHub/3710-HRTF -name *.sofa)",
+      "Bash(cd:*)",
+      "Bash(git:*)",
+      "WebSearch",
+      "WebFetch(domain:arxiv.org)",
+      "WebFetch(domain:yzyouzhang.com)",
+      "Read(//c/Users/Apermesa/.claude/projects/C--Users-Apermesa-Documents-Raytraced-Audio/**)",
+      "Bash(python3 -c \":*)"
     ]
   }
 }
