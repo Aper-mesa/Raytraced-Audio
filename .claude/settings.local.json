@@ -16,7 +16,8 @@
       "WebFetch(domain:arxiv.org)",
       "WebFetch(domain:yzyouzhang.com)",
       "Read(//c/Users/Apermesa/.claude/projects/C--Users-Apermesa-Documents-Raytraced-Audio/**)",
-      "Bash(python3 -c \":*)"
+      "Bash(python3 -c \":*)",
+      "Bash(where soffice:*)"
     ]
   }
 }

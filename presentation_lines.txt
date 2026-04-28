@@ -1,0 +1,173 @@
+========================================
+ POSTER PRESENTATION SCRIPT
+ Objective HRTF Evaluation Metrics
+========================================
+
+--- OPENING (15 sec) ---
+
+"The spatial audio industry has been using the same evaluation metric for
+decades — Log-Spectral Distortion — and it turns out it's fundamentally
+broken. My thesis proves it, and proposes a fix."
+
+
+--- INTRODUCTION (45 sec) ---
+
+"HRTF — Head-Related Transfer Function — is the filter that makes headphone
+audio sound like it's coming from outside your head, from a specific direction
+in 3D space. It's personal to each person's anatomy.
+
+To build or personalize HRTFs, you need a way to measure quality. The industry
+standard is Log-Spectral Distortion, or LSD. The problem is that LSD only
+looks at the magnitude spectrum — it is completely blind to phase. And a 2022
+study by Andreopoulou and Katz showed just how badly that matters:
+minimum-phase reconstruction achieves LSD below 1 dB — technically 'perfect'
+— yet human listeners gave it completely different quality rankings, with a
+correlation of only r ≈ 0.5."
+
+
+--- METHODS (60 sec) ---
+
+"I used the RIEC HRTF Database from Tohoku University — 20 subjects, 865
+spatial positions each, 48 kHz. I applied five targeted degradation conditions,
+each designed to expose a specific metric blindspot.
+
+The most important one is minimum-phase reconstruction — it mathematically
+preserves the magnitude spectrum exactly, but destroys the phase structure.
+
+Then I computed four metrics: LSD as the baseline, ILD error which is binaural,
+Group Delay error which is phase-sensitive, and ITD error. These four are
+combined into a single Composite Perceptual Metric — CPM — weighted by
+psychoacoustic JND thresholds. Group delay gets the highest weight of 0.35
+because phase sensitivity is exactly what LSD is missing."
+
+
+--- RESULTS (60 sec) ---
+[Point to the results table while speaking]
+
+"The central finding is on this table. Minimum-phase reconstruction achieves
+an LSD of just 0.030 dB — the LOWEST of all five conditions. By LSD alone,
+it looks like the best processing. But its CPM is 14.094 — the HIGHEST, over
+five times worse than the next worst condition.
+
+The reason is here — the Group Delay error of 2.335 ms, which is 11 to 39
+times larger than any other condition.
+
+[Point to the scatter plot]
+This scatter plot shows it clearly: minimum-phase sits near zero on the LSD
+axis but at the top of the CPM axis — way off the diagonal. That is the LSD
+blindspot, quantified.
+
+For all the non-phase-altering conditions, CPM behaves exactly as expected —
+it increases monotonically with degradation severity. So CPM doesn't sacrifice
+magnitude sensitivity to gain phase sensitivity. It captures both."
+
+
+--- CONCLUSIONS (30 sec) ---
+
+"Three contributions: First, I empirically confirmed the LSD blindspot on an
+independent database. Second, Group Delay error is the key discriminator for
+phase distortion. Third, CPM successfully captures both magnitude and phase
+degradations in a single score.
+
+The main limitation is that CPM hasn't been validated against subjective
+listening tests yet — the weights are JND-based heuristics. That's the primary
+next step: a MUSHRA listening test to verify that CPM actually correlates with
+human perception."
+
+
+========================================
+ Q&A QUICK ANSWERS
+========================================
+
+Q: Why is LSD still being used?
+A: Computationally simple and mathematically convex — ideal for optimization
+   cost functions. But its perceptual validity has always been questionable.
+
+Q: How were the CPM weights determined?
+A: Set heuristically based on psychoacoustic JND thresholds. Future work will
+   optimize them via regression against MUSHRA subjective scores.
+
+Q: Why is LSD so low for minimum-phase?
+A: Minimum-phase reconstruction mathematically preserves the magnitude spectrum
+   exactly by construction. LSD only measures magnitude, so it reads near zero.
+
+Q: What is the practical implication?
+A: Deep learning HRTF generation models currently use LSD/MSE as loss functions.
+   Replacing them with CPM would prevent training "spectrally clean but
+   perceptually poor" HRTFs.
+
+Q: Why no subjective listening test?
+A: Subjective tests are expensive and time-consuming. This work first establishes
+   the objective framework; MUSHRA validation is the primary future work.
+
+Q: Why did you choose Group Delay as your phase-sensitive metric rather than
+   something like phase spectrum difference directly?
+A: Phase spectrum difference is highly sensitive to the reference point and
+   wrapping ambiguity, making it numerically unstable across spatial positions.
+   Group delay — the negative derivative of phase with respect to frequency —
+   is more interpretable (it's in milliseconds), numerically stable via the
+   conjugate-division formulation, and directly relates to the temporal
+   fine-structure cues that the auditory system uses for localization.
+
+Q: Could CPM produce false alarms — flagging a perceptually acceptable
+   HRTF as degraded?
+A: Potentially, yes — the weights are heuristic, not empirically optimized.
+   For example, if a processing method introduces a large group delay shift
+   that turns out to be perceptually transparent, CPM would over-penalize it.
+   This is exactly why MUSHRA validation and weight optimization are the
+   critical next steps.
+
+Q: Why is the ITD error for minimum-phase so high (0.579 ms) even though
+   you re-inserted the original ITD?
+A: The re-insertion used onset detection — finding the first sample exceeding
+   1% of peak amplitude. For HRIRs with a gradual onset, this threshold
+   misidentifies the true onset, introducing a residual ITD error. A more
+   robust method such as the centroid of the squared envelope would likely
+   reduce this artifact.
+
+Q: How does CPM compare to more recent metrics like PESD or BINAQUAL?
+A: PESD (Armstrong et al., 2024) improves on LSD by adding threshold
+   discrimination and binaural weighting, but still focuses heavily on the
+   magnitude domain and may miss phase-domain distortions. BINAQUAL
+   (Panah et al., 2025) explicitly models phase via phaseograms and has been
+   validated against MUSHRA scores. CPM is simpler and interpretable — each
+   component has a clear psychoacoustic meaning — which makes it easier to
+   diagnose which dimension of quality is degraded.
+
+Q: Why only 20 out of 51 available subjects?
+A: A balanced gender subset of 10 male and 10 female subjects was selected to
+   avoid confounding results with gender-specific anatomical differences, such
+   as smaller pinnae in female subjects shifting pinna notch frequencies upward.
+   20 subjects × 865 positions gives 17,300 spatial measurements per condition,
+   which provides sufficient statistical power for cross-subject averaging.
+
+Q: Could CPM be used as a loss function when training neural networks for
+   HRTF personalization?
+A: Yes, and that is one of the proposed future directions. All four CPM
+   components are differentiable, so CPM can in principle be backpropagated
+   through. Training with CPM instead of MSE or LSD would incentivize the
+   network to preserve phase structure and binaural cues, not just match the
+   magnitude spectrum.
+
+Q: What does the 4–12 kHz pinna notch region have to do with this?
+A: The pinnae create sharp spectral notches in the 4–12 kHz range that the
+   brain uses to resolve elevation and front-back ambiguity. LSD averages error
+   across all frequencies equally, so a catastrophic distortion of a single
+   pinna notch gets diluted by "good" performance elsewhere. A future extension
+   of CPM would apply frequency-dependent weighting to give this region
+   proportionally greater influence.
+
+Q: Is the RIEC database representative enough to generalize your findings?
+A: It is one of the largest publicly available databases — 51 subjects, 865
+   spatial positions, high temporal resolution — which is why it was chosen.
+   However, generalizability across databases is not guaranteed. The SADIE II
+   cross-validation proposed in future work directly addresses this concern.
+
+Q: What would it mean practically if CPM were adopted as the industry standard?
+A: HRTF personalization pipelines, compression algorithms, and deep learning
+   models that currently optimize for LSD would need to be re-evaluated.
+   Some techniques that are currently considered state-of-the-art by LSD
+   standards — particularly minimum-phase approximations — might be rejected.
+   Conversely, some techniques previously dismissed as "high distortion" by LSD
+   might actually perform well perceptually if they preserve phase and binaural
+   cues. It would effectively reset how the field benchmarks quality.
