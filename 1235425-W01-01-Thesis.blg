@@ -6,45 +6,45 @@ The style file: unsrtnat.bst
 Reallocating 'name_of_file' (item size: 1) to 11 items.
 Database file #1: references.bib
 Warning--empty journal in watanabe2014
-You've used 25 entries,
+You've used 27 entries,
             2481 wiz_defined-function locations,
-            706 strings with 9247 characters,
-and the built_in function-call counts, 9250 in all, are:
-= -- 781
-> -- 503
+            718 strings with 9761 characters,
+and the built_in function-call counts, 10037 in all, are:
+= -- 850
+> -- 545
 < -- 13
-+ -- 194
-- -- 144
-* -- 721
-:= -- 1530
-add.period$ -- 94
-call.type$ -- 25
-change.case$ -- 49
-chr.to.int$ -- 25
-cite$ -- 26
-duplicate$ -- 469
-empty$ -- 831
-format.name$ -- 187
-if$ -- 1945
++ -- 210
+- -- 156
+* -- 784
+:= -- 1658
+add.period$ -- 102
+call.type$ -- 27
+change.case$ -- 53
+chr.to.int$ -- 27
+cite$ -- 28
+duplicate$ -- 510
+empty$ -- 904
+format.name$ -- 201
+if$ -- 2113
 int.to.chr$ -- 1
-int.to.str$ -- 26
-missing$ -- 24
-newline$ -- 152
-num.names$ -- 75
-pop$ -- 192
+int.to.str$ -- 28
+missing$ -- 26
+newline$ -- 164
+num.names$ -- 81
+pop$ -- 210
 preamble$ -- 1
-purify$ -- 25
+purify$ -- 27
 quote$ -- 0
-skip$ -- 269
+skip$ -- 287
 stack$ -- 0
-substring$ -- 291
-swap$ -- 50
+substring$ -- 320
+swap$ -- 54
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 172
+type$ -- 186
 warning$ -- 1
-while$ -- 70
+while$ -- 76
 width$ -- 0
-write$ -- 363
+write$ -- 393
 (There was 1 warning)

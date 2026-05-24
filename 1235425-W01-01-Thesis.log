@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.29)  15 APR 2026 00:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.29)  24 MAY 2026 20:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -553,7 +553,8 @@ Overfull \hbox (1.67711pt too wide) in paragraph at lines 2--2
 -di-tion. The minimum- 
  []
 
-)
+[7{C:/Users/Apermesa/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc
+}])
 \tf@lof=\write5
 \openout5 = `1235425-W01-01-Thesis.lof'.
 
@@ -561,9 +562,8 @@ Overfull \hbox (1.67711pt too wide) in paragraph at lines 2--2
 \tf@lot=\write6
 \openout6 = `1235425-W01-01-Thesis.lot'.
 
- [7{C:/Users/Apermesa/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathi
-t.enc}{C:/Users/Apermesa/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm
-.enc}] [8] [9]
+ [8{C:/Users/Apermesa/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathi
+t.enc}] [9] [10]
 Overfull \hbox (4.84633pt too wide) in paragraph at lines 281--282
 \T1/lmr/m/n/12 ex-ter-nal-iza-tion, and over-all pref-er-ence, of-ten us-ing st
 an-dard-ized meth-ods like MUSHRA
@@ -588,65 +588,90 @@ l HRTFs are mixed-phase. The minimum-
  []
 
 [9{C:/Users/Apermesa/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex
-.enc}] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 5
-99.
+.enc}] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] [22]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 612.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 612.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 612.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 6
+12.
 
 (C:\Users\Apermesa\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-[21]
-Overfull \hbox (88.39853pt too wide) in paragraph at lines 632--643
+[23]
+Overfull \hbox (88.39853pt too wide) in paragraph at lines 651--662
  [][] 
  []
 
-[22]
-<figures/fig4_1_metric_comparison.png, id=473, 794.97pt x 361.35pt>
+[24]
+<figures/fig4_1_metric_comparison.png, id=524, 794.97pt x 361.35pt>
 File: figures/fig4_1_metric_comparison.png Graphic file (type png)
 <use figures/fig4_1_metric_comparison.png>
 Package pdftex.def Info: figures/fig4_1_metric_comparison.png  used on input li
-ne 651.
+ne 670.
 (pdftex.def)             Requested size: 432.48051pt x 196.58723pt.
-<figures/fig4_2_lsd_vs_cpm.png, id=475, 433.62pt x 361.35pt>
+<figures/fig4_2_lsd_vs_cpm.png, id=526, 433.62pt x 361.35pt>
 File: figures/fig4_2_lsd_vs_cpm.png Graphic file (type png)
 <use figures/fig4_2_lsd_vs_cpm.png>
-Package pdftex.def Info: figures/fig4_2_lsd_vs_cpm.png  used on input line 658.
+Package pdftex.def Info: figures/fig4_2_lsd_vs_cpm.png  used on input line 677.
 
 (pdftex.def)             Requested size: 341.43307pt x 284.54257pt.
-<figures/fig4_3_spectral_comparison.png, id=476, 650.43pt x 433.62pt>
+<figures/fig4_3_spectral_comparison.png, id=527, 650.43pt x 433.62pt>
 File: figures/fig4_3_spectral_comparison.png Graphic file (type png)
 <use figures/fig4_3_spectral_comparison.png>
 Package pdftex.def Info: figures/fig4_3_spectral_comparison.png  used on input 
-line 665.
+line 684.
 (pdftex.def)             Requested size: 432.48051pt x 288.32721pt.
-<figures/fig4_4_group_delay.png, id=477, 650.43pt x 289.08pt>
+<figures/fig4_4_group_delay.png, id=528, 650.43pt x 289.08pt>
 File: figures/fig4_4_group_delay.png Graphic file (type png)
 <use figures/fig4_4_group_delay.png>
-Package pdftex.def Info: figures/fig4_4_group_delay.png  used on input line 672
+Package pdftex.def Info: figures/fig4_4_group_delay.png  used on input line 691
 .
 (pdftex.def)             Requested size: 432.48051pt x 192.21812pt.
- [23 <./figures/fig4_1_metric_comparison.png>] [24 <./figures/fig4_2_lsd_vs_cpm
-.png>] [25 <./figures/fig4_3_spectral_comparison.png> <./figures/fig4_4_group_d
-elay.png>] [26]
-Overfull \hbox (19.68987pt too wide) in paragraph at lines 691--693
+<figures/fig4_5_individual_metrics.png, id=529, 867.24pt x 578.16pt>
+File: figures/fig4_5_individual_metrics.png Graphic file (type png)
+<use figures/fig4_5_individual_metrics.png>
+Package pdftex.def Info: figures/fig4_5_individual_metrics.png  used on input l
+ine 698.
+(pdftex.def)             Requested size: 432.48051pt x 288.32059pt.
+<figures/fig4_6_radar_chart.png, id=530, 505.89pt x 505.89pt>
+File: figures/fig4_6_radar_chart.png Graphic file (type png)
+<use figures/fig4_6_radar_chart.png>
+Package pdftex.def Info: figures/fig4_6_radar_chart.png  used on input line 705
+.
+(pdftex.def)             Requested size: 341.43307pt x 341.43785pt.
+<figures/fig4_7_cpm_breakdown.png, id=531, 650.43pt x 361.35pt>
+File: figures/fig4_7_cpm_breakdown.png Graphic file (type png)
+<use figures/fig4_7_cpm_breakdown.png>
+Package pdftex.def Info: figures/fig4_7_cpm_breakdown.png  used on input line 7
+12.
+(pdftex.def)             Requested size: 409.71692pt x 227.62413pt.
+ [25 <./figures/fig4_1_metric_comparison.png>] [26 <./figures/fig4_2_lsd_vs_cpm
+.png>] [27 <./figures/fig4_3_spectral_comparison.png> <./figures/fig4_4_group_d
+elay.png>] [28 <./figures/fig4_5_individual_metrics.png>] [29 <./figures/fig4_6
+_radar_chart.png>] [30 <./figures/fig4_7_cpm_breakdown.png>] [31]
+Overfull \hbox (19.68987pt too wide) in paragraph at lines 736--738
 \T1/lmr/m/n/12 cep-tion, not on em-pir-i-cal sub-jec-tive data. Sec-ond, the CP
 M weights ($\OML/lmm/m/it/12 W[]; W[]; W[]; W[]$\T1/lmr/m/n/12 )
  []
 
-[27]
-Overfull \hbox (3.09715pt too wide) in paragraph at lines 706--708
+[32]
+Overfull \hbox (3.09715pt too wide) in paragraph at lines 751--753
 \T1/lmr/m/n/12 tion con-di-tion was shown to achieve an LSD of only 0.030 dB---
 the low-est of all conditions---
  []
 
 
-Overfull \hbox (6.23894pt too wide) in paragraph at lines 712--714
+Overfull \hbox (6.23894pt too wide) in paragraph at lines 757--759
 []\T1/lmr/bx/n/12 Contribution 3: The CPM Frame-work. \T1/lmr/m/n/12 The pro-po
 sed Com-pos-ite Per-cep-tual Metric---
  []
 
-[28] [29] (1235425-W01-01-Thesis.bbl [30] [31]) [32] (1235425-W01-01-Thesis.aux
-)
+[33] [34] (1235425-W01-01-Thesis.bbl [35] [36] [37]) [38]
+(1235425-W01-01-Thesis.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -655,28 +680,35 @@ Package rerunfilecheck Info: File `1235425-W01-01-Thesis.out' has not changed.
 (rerunfilecheck)             Checksum: 732C87C77E4899B835BB3B5921AFAB9B;5789.
  ) 
 Here is how much of TeX's memory you used:
- 11314 strings out of 467871
- 178067 string characters out of 5416924
- 594551 words of memory out of 5000000
- 39900 multiletter control sequences out of 15000+600000
- 681882 words of font info for 67 fonts, out of 8000000 for 9000
+ 11386 strings out of 467871
+ 179522 string characters out of 5416924
+ 600012 words of memory out of 5000000
+ 39947 multiletter control sequences out of 15000+600000
+ 701961 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,11n,79p,2104b,583s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/Apermesa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12
-.pfb><C:/Users/Apermesa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmb
-xi10.pfb><C:/Users/Apermesa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm
-/lmex10.pfb><C:/Users/Apermesa/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/lm/lmmi12.pfb><C:/Users/Apermesa/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/lm/lmmi8.pfb><C:/Users/Apermesa/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ 75i,11n,79p,2104b,601s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
+, replaced by a fixed one
+
+<C:/Users/Apermesa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.p
+fb><C:/Users/Apermesa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi
+10.pfb><C:/Users/Apermesa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/l
+mex10.pfb><C:/Users/Apermesa/AppData/Local/Programs/MiKTeX/fonts/type1/public/l
+m/lmmi12.pfb><C:/Users/Apermesa/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/lm/lmmi8.pfb><C:/Users/Apermesa/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/lm/lmr10.pfb><C:/Users/Apermesa/AppData/Local/Programs/MiKTeX/fonts/type1/p
 ublic/lm/lmr12.pfb><C:/Users/Apermesa/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/lm/lmr8.pfb><C:/Users/Apermesa/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/lm/lmri12.pfb><C:/Users/Apermesa/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/lm/lmsy10.pfb><C:/Users/Apermesa/AppData/Local/Programs/MiKTeX/font
-s/type1/public/lm/lmsy8.pfb><C:/Users/Apermesa/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/lm/lmtt12.pfb>
-Output written on 1235425-W01-01-Thesis.pdf (41 pages, 627939 bytes).
+/public/lm/lmr7.pfb><C:/Users/Apermesa/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/lm/lmr8.pfb><C:/Users/Apermesa/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/lm/lmri12.pfb><C:/Users/Apermesa/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/lm/lmsy10.pfb><C:/Users/Apermesa/AppData/Local/Programs/MiKTeX/fon
+ts/type1/public/lm/lmsy8.pfb><C:/Users/Apermesa/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/lm/lmtt10.pfb><C:/Users/Apermesa/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/lm/lmtt12.pfb>
+Output written on 1235425-W01-01-Thesis.pdf (48 pages, 1002182 bytes).
 PDF statistics:
- 637 PDF objects out of 1000 (max. 8388607)
- 121 named destinations out of 1000 (max. 500000)
- 301 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 738 PDF objects out of 1000 (max. 8388607)
+ 134 named destinations out of 1000 (max. 500000)
+ 316 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,4 +1,4 @@
-\begin{thebibliography}{25}
+\begin{thebibliography}{27}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -138,6 +138,21 @@ Davood~S. Panah, Dan Barry, Alessandro Ragano, Jan Skoglund, and Andrew Hines.
   for binaural audio.
 \newblock \emph{arXiv preprint arXiv:2505.11915}, 2025.
 \newblock URL \url{https://arxiv.org/abs/2505.11915}.
+
+\bibitem[Weckbecker et~al.(2025)Weckbecker, Ragano, and Hines]{weckbecker2025}
+Daniel Weckbecker, Alessandro Ragano, and Andrew Hines.
+\newblock {QASTAnet}: A {DNN}-based quality metric for spatial audio.
+\newblock In \emph{Proceedings of the IEEE International Conference on
+  Acoustics, Speech and Signal Processing (ICASSP)}, Hyderabad, India, 2025.
+\newblock URL \url{https://arxiv.org/abs/2509.16715}.
+
+\bibitem[Fantini et~al.(2025)Fantini, Geronazzo, and Avanzini]{fantini2025}
+Davide Fantini, Michele Geronazzo, and Federico Avanzini.
+\newblock A survey on machine learning techniques for head-related transfer
+  function individualization.
+\newblock \emph{IEEE Open Journal of Signal Processing}, 6:\penalty0 217--248,
+  2025.
+\newblock \doi{10.1109/OJSP.2025.3528330}.
 
 \bibitem[Wang et~al.(2021)Wang, Zhang, Duan, and Bocko]{wang2021}
 Yuxiang Wang, You~(Neil) Zhang, Zhiyao Duan, and Mark Bocko.

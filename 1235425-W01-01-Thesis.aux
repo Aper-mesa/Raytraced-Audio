@@ -4,8 +4,8 @@
 \providecommand\HyField@AuxAddToCoFields[2]{}
 \@writefile{toc}{\contentsline {section}{Abstract}{iii}{section*.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{Acknowledgements}{iv}{section*.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{Definition of Acronyms}{viii}{section*.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{Definition of Notations}{ix}{section*.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{Definition of Acronyms}{ix}{section*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{Definition of Notations}{x}{section*.7}\protected@file@percent }
 \citation{asaudio2025}
 \citation{asaudio2025}
 \citation{asaudio2025}
@@ -89,15 +89,17 @@
 \citation{panah2025}
 \citation{panah2025}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.5}Recent Advances: PESD and BINAQUAL (2024--2025)}{13}{subsubsection.2.2.5}\protected@file@percent }
+\citation{weckbecker2025}
+\citation{fantini2025}
 \citation{reijniers2014}
 \citation{baumgartner2021}
 \citation{ananthabhotla2021}
 \citation{engel2022}
 \citation{andreopoulou2022}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Research Gaps}{14}{subsection.2.3}\protected@file@percent }
 \citation{wang2021}
 \citation{majdak2022}
 \citation{zhang2025}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Research Gaps}{14}{subsection.2.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Summary}{15}{subsection.2.4}\protected@file@percent }
 \citation{watanabe2014}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Methodology}{16}{section.3}\protected@file@percent }
@@ -112,32 +114,49 @@
 \newlabel{eq:gd}{{4}{19}{Proposed Metrics}{equation.4}{}}
 \newlabel{eq:itd}{{5}{19}{Proposed Metrics}{equation.5}{}}
 \newlabel{eq:cpm}{{6}{19}{Proposed Metrics}{equation.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Evaluation Strategy}{20}{subsection.3.4}\protected@file@percent }
-\citation{watanabe2014}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Implementation, Results, and Discussion}{21}{section.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Experimental Setup}{21}{subsection.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Degradation Conditions}{21}{subsection.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Metrics Implementation}{22}{subsection.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Results}{22}{subsection.4.4}\protected@file@percent }
 \citation{andreopoulou2022}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Objective metric results across degradation conditions (mean $\pm $ std, $n = 20$ subjects).}}{23}{table.1}\protected@file@percent }
-\newlabel{tab:results}{{1}{23}{Objective metric results across degradation conditions (mean $\pm $ std, $n = 20$ subjects)}{table.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Figures}{23}{subsection.4.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Grouped bar chart showing normalized metric values across all five degradation conditions. The ``LSD blindspot'' is annotated: the minimum-phase condition has near-zero LSD but the highest group delay error and CPM of all conditions.}}{23}{figure.1}\protected@file@percent }
-\newlabel{fig:metric_comparison}{{1}{23}{Grouped bar chart showing normalized metric values across all five degradation conditions. The ``LSD blindspot'' is annotated: the minimum-phase condition has near-zero LSD but the highest group delay error and CPM of all conditions}{figure.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Discussion}{23}{subsection.4.6}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Scatter plot of LSD vs.\ CPM for each degradation condition. The minimum-phase condition (lower-left corner by LSD, upper region by CPM) demonstrates the fundamental divergence between magnitude-only and composite perceptual metrics. The dashed diagonal represents hypothetical LSD--CPM agreement.}}{24}{figure.2}\protected@file@percent }
-\newlabel{fig:lsd_vs_cpm}{{2}{24}{Scatter plot of LSD vs.\ CPM for each degradation condition. The minimum-phase condition (lower-left corner by LSD, upper region by CPM) demonstrates the fundamental divergence between magnitude-only and composite perceptual metrics. The dashed diagonal represents hypothetical LSD--CPM agreement}{figure.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Spectral comparison of original vs.\ minimum-phase HRTF (Subject~1, left ear, averaged over 20 spatial directions). Top: Magnitude spectra are nearly identical, explaining the near-zero LSD. Bottom: The magnitude difference is minimal across the entire frequency range, including the pinna notch region (4--12~kHz, shaded). This visual confirms that LSD, which operates solely on magnitude, is fundamentally incapable of detecting the phase distortion introduced by minimum-phase reconstruction.}}{25}{figure.3}\protected@file@percent }
-\newlabel{fig:spectral_comparison}{{3}{25}{Spectral comparison of original vs.\ minimum-phase HRTF (Subject~1, left ear, averaged over 20 spatial directions). Top: Magnitude spectra are nearly identical, explaining the near-zero LSD. Bottom: The magnitude difference is minimal across the entire frequency range, including the pinna notch region (4--12~kHz, shaded). This visual confirms that LSD, which operates solely on magnitude, is fundamentally incapable of detecting the phase distortion introduced by minimum-phase reconstruction}{figure.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Group delay comparison of original vs.\ minimum-phase HRTF (Subject~1, left ear, averaged over 20 spatial directions). The massive divergence between the two curves---particularly in the 4--12~kHz pinna notch region (shaded)---reveals the phase distortion that LSD is blind to. The group delay error metric (GD Err) captures this divergence, driving the minimum-phase condition's high CPM score.}}{25}{figure.4}\protected@file@percent }
-\newlabel{fig:group_delay}{{4}{25}{Group delay comparison of original vs.\ minimum-phase HRTF (Subject~1, left ear, averaged over 20 spatial directions). The massive divergence between the two curves---particularly in the 4--12~kHz pinna notch region (shaded)---reveals the phase distortion that LSD is blind to. The group delay error metric (GD Err) captures this divergence, driving the minimum-phase condition's high CPM score}{figure.4}{}}
+\citation{blauert1997}
+\citation{blauert1997}
+\citation{blauert1997}
+\citation{andreopoulou2022}
+\citation{blauert1997}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Evaluation Strategy}{21}{subsection.3.4}\protected@file@percent }
+\citation{watanabe2014}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Implementation, Results, and Discussion}{23}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Experimental Setup}{23}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Degradation Conditions}{23}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Metrics Implementation}{24}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Results}{24}{subsection.4.4}\protected@file@percent }
+\citation{andreopoulou2022}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Objective metric results across degradation conditions (mean $\pm $ std, $n = 20$ subjects).}}{25}{table.1}\protected@file@percent }
+\newlabel{tab:results}{{1}{25}{Objective metric results across degradation conditions (mean $\pm $ std, $n = 20$ subjects)}{table.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Figures}{25}{subsection.4.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Grouped bar chart showing normalized metric values across all five degradation conditions. The ``LSD blindspot'' is annotated: the minimum-phase condition has near-zero LSD but the highest group delay error and CPM of all conditions.}}{25}{figure.1}\protected@file@percent }
+\newlabel{fig:metric_comparison}{{1}{25}{Grouped bar chart showing normalized metric values across all five degradation conditions. The ``LSD blindspot'' is annotated: the minimum-phase condition has near-zero LSD but the highest group delay error and CPM of all conditions}{figure.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Discussion}{25}{subsection.4.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Scatter plot of LSD vs.\ CPM for each degradation condition. The minimum-phase condition (lower-left corner by LSD, upper region by CPM) demonstrates the fundamental divergence between magnitude-only and composite perceptual metrics. The dashed diagonal represents hypothetical LSD--CPM agreement.}}{26}{figure.2}\protected@file@percent }
+\newlabel{fig:lsd_vs_cpm}{{2}{26}{Scatter plot of LSD vs.\ CPM for each degradation condition. The minimum-phase condition (lower-left corner by LSD, upper region by CPM) demonstrates the fundamental divergence between magnitude-only and composite perceptual metrics. The dashed diagonal represents hypothetical LSD--CPM agreement}{figure.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Spectral comparison of original vs.\ minimum-phase HRTF (Subject~1, left ear, averaged over 20 spatial directions). Top: Magnitude spectra are nearly identical, explaining the near-zero LSD. Bottom: The magnitude difference is minimal across the entire frequency range, including the pinna notch region (4--12~kHz, shaded). This visual confirms that LSD, which operates solely on magnitude, is fundamentally incapable of detecting the phase distortion introduced by minimum-phase reconstruction.}}{27}{figure.3}\protected@file@percent }
+\newlabel{fig:spectral_comparison}{{3}{27}{Spectral comparison of original vs.\ minimum-phase HRTF (Subject~1, left ear, averaged over 20 spatial directions). Top: Magnitude spectra are nearly identical, explaining the near-zero LSD. Bottom: The magnitude difference is minimal across the entire frequency range, including the pinna notch region (4--12~kHz, shaded). This visual confirms that LSD, which operates solely on magnitude, is fundamentally incapable of detecting the phase distortion introduced by minimum-phase reconstruction}{figure.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Group delay comparison of original vs.\ minimum-phase HRTF (Subject~1, left ear, averaged over 20 spatial directions). The massive divergence between the two curves---particularly in the 4--12~kHz pinna notch region (shaded)---reveals the phase distortion that LSD is blind to. The group delay error metric (GD Err) captures this divergence, driving the minimum-phase condition's high CPM score.}}{27}{figure.4}\protected@file@percent }
+\newlabel{fig:group_delay}{{4}{27}{Group delay comparison of original vs.\ minimum-phase HRTF (Subject~1, left ear, averaged over 20 spatial directions). The massive divergence between the two curves---particularly in the 4--12~kHz pinna notch region (shaded)---reveals the phase distortion that LSD is blind to. The group delay error metric (GD Err) captures this divergence, driving the minimum-phase condition's high CPM score}{figure.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Individual metric responses across all five degradation conditions (error bars represent $\pm 1$ standard deviation across 20 subjects). Each panel isolates one metric, revealing the distinct sensitivity profiles: LSD responds strongly to magnitude smoothing but is near-zero for minimum-phase; conversely, group delay error peaks for minimum-phase while remaining low for smoothing and quantization conditions.}}{28}{figure.5}\protected@file@percent }
+\newlabel{fig:individual_metrics}{{5}{28}{Individual metric responses across all five degradation conditions (error bars represent $\pm 1$ standard deviation across 20 subjects). Each panel isolates one metric, revealing the distinct sensitivity profiles: LSD responds strongly to magnitude smoothing but is near-zero for minimum-phase; conversely, group delay error peaks for minimum-phase while remaining low for smoothing and quantization conditions}{figure.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Radar chart of normalised metric profiles per degradation condition. Each axis represents one metric normalised to [0,\,1]. The minimum-phase condition (blue) shows a dramatically different profile from all other conditions, extending along the GD Error and ITD Error axes while collapsing on the LSD and ILD Error axes. This visualisation highlights the complementary nature of the four metrics and the necessity of a composite approach.}}{29}{figure.6}\protected@file@percent }
+\newlabel{fig:radar_chart}{{6}{29}{Radar chart of normalised metric profiles per degradation condition. Each axis represents one metric normalised to [0,\,1]. The minimum-phase condition (blue) shows a dramatically different profile from all other conditions, extending along the GD Error and ITD Error axes while collapsing on the LSD and ILD Error axes. This visualisation highlights the complementary nature of the four metrics and the necessity of a composite approach}{figure.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Stacked bar chart showing the contribution of each CPM component to the total composite score. For the minimum-phase condition, the group delay component (green) accounts for over 95\% of the total CPM, while for the smoothing and quantization conditions, the score is distributed across LSD and ILD components. This decomposition reveals precisely which perceptual dimensions are degraded by each processing technique.}}{30}{figure.7}\protected@file@percent }
+\newlabel{fig:cpm_breakdown}{{7}{30}{Stacked bar chart showing the contribution of each CPM component to the total composite score. For the minimum-phase condition, the group delay component (green) accounts for over 95\% of the total CPM, while for the smoothing and quantization conditions, the score is distributed across LSD and ILD components. This decomposition reveals precisely which perceptual dimensions are degraded by each processing technique}{figure.7}{}}
+\citation{doma2023}
+\citation{armstrong2024}
+\citation{fantini2025}
+\citation{weckbecker2025}
+\citation{panah2025}
 \citation{andreopoulou2022}
 \citation{itu2015}
 \citation{andreopoulou2016}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion and Future Work}{28}{section.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Conclusion}{28}{subsection.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Future Work}{28}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion and Future Work}{33}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Conclusion}{33}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Future Work}{33}{subsection.5.2}\protected@file@percent }
 \citation{armstrong2018}
 \citation{reijniers2014}
 \citation{baumgartner2014,baumgartner2021}
@@ -165,10 +184,12 @@
 \bibcite{ananthabhotla2021}{{17}{2021}{{Ananthabhotla et~al.}}{{Ananthabhotla, Ithapu, and Brimijoin}}}
 \bibcite{armstrong2024}{{18}{2024}{{Armstrong et~al.}}{{Armstrong, Thresh, Murphy, and Kearney}}}
 \bibcite{panah2025}{{19}{2025}{{Panah et~al.}}{{Panah, Barry, Ragano, Skoglund, and Hines}}}
-\bibcite{wang2021}{{20}{2021}{{Wang et~al.}}{{Wang, Zhang, Duan, and Bocko}}}
-\bibcite{majdak2022}{{21}{2022}{{Majdak et~al.}}{{Majdak, Hollomey, and Baumgartner}}}
-\bibcite{watanabe2014}{{22}{2014}{{Watanabe et~al.}}{{Watanabe, Takane, Suzuki, et~al.}}}
-\bibcite{andreopoulou2016}{{23}{2016}{{Andreopoulou and Katz}}{{}}}
-\bibcite{armstrong2018}{{24}{2018}{{Armstrong et~al.}}{{Armstrong, Thresh, Murphy, and Kearney}}}
-\bibcite{baumgartner2014}{{25}{2014}{{Baumgartner et~al.}}{{Baumgartner, Majdak, and Laback}}}
-\gdef \@abspage@last{41}
+\bibcite{weckbecker2025}{{20}{2025}{{Weckbecker et~al.}}{{Weckbecker, Ragano, and Hines}}}
+\bibcite{fantini2025}{{21}{2025}{{Fantini et~al.}}{{Fantini, Geronazzo, and Avanzini}}}
+\bibcite{wang2021}{{22}{2021}{{Wang et~al.}}{{Wang, Zhang, Duan, and Bocko}}}
+\bibcite{majdak2022}{{23}{2022}{{Majdak et~al.}}{{Majdak, Hollomey, and Baumgartner}}}
+\bibcite{watanabe2014}{{24}{2014}{{Watanabe et~al.}}{{Watanabe, Takane, Suzuki, et~al.}}}
+\bibcite{andreopoulou2016}{{25}{2016}{{Andreopoulou and Katz}}{{}}}
+\bibcite{armstrong2018}{{26}{2018}{{Armstrong et~al.}}{{Armstrong, Thresh, Murphy, and Kearney}}}
+\bibcite{baumgartner2014}{{27}{2014}{{Baumgartner et~al.}}{{Baumgartner, Majdak, and Laback}}}
+\gdef \@abspage@last{48}

@@ -455,6 +455,8 @@ The authors claim PESD exhibits ``superior performance in prediction error and c
 
 Finally, Panah et al.\ (2025) \cite{panah2025} introduced BINAQUAL. Adapted from the AMBIQUAL metric for Ambisonics, BINAQUAL is a full-reference metric specifically for binaural audio. It utilizes a ``Neuro-SIM'' (NSIM) approach, calculating similarity based on phaseograms and structural similarity indices (SSIM) applied to the time-frequency representation of the binaural signal. It explicitly models the preservation of localization cues (ITD/ILD) and has been validated against MUSHRA listening test scores, showing strong correlation for evaluating compression artifacts and spatial degradations \cite{panah2025}.
 
+Concurrently, Weckbecker et al.\ (2025) \cite{weckbecker2025} proposed QASTAnet, a DNN-based quality metric for spatial audio presented at ICASSP~2025. QASTAnet learns to predict subjective spatial quality scores from the time-frequency representation of binaural signals, demonstrating the growing trend toward learned metrics that bypass hand-crafted features. Additionally, Fantini et al.\ (2025) \cite{fantini2025} published a comprehensive survey on machine learning techniques for HRTF individualization in IEEE Open Journal of Signal Processing, which confirms that MSE/LSD remain the dominant objective functions in deep learning HRTF pipelines despite their well-documented perceptual limitations---further motivating the need for composite alternatives like the CPM framework proposed in this thesis.
+
 \subsection{Research Gaps}
 
 Despite these advances, a unified, universally accepted standard is missing.
@@ -567,7 +569,24 @@ The four metrics are combined into a single scalar score via weighted summation 
 \mathrm{CPM} = \frac{W_{\mathrm{LSD}} \cdot \mathrm{LSD}}{\mathrm{LSD}_{\mathrm{ref}}} + \frac{W_{\mathrm{ILD}} \cdot \mathrm{ILD}_{\mathrm{err}}}{\mathrm{ILD}_{\mathrm{ref}}} + \frac{W_{\mathrm{GD}} \cdot \mathrm{GD}_{\mathrm{err}}}{\mathrm{GD}_{\mathrm{ref}}} + \frac{W_{\mathrm{ITD}} \cdot \mathrm{ITD}_{\mathrm{err}}}{\mathrm{ITD}_{\mathrm{ref}}}
 \label{eq:cpm}
 \end{equation}
-where the reference values are approximate JND-based thresholds: $\mathrm{LSD}_{\mathrm{ref}} = 2.0$~dB, $\mathrm{ILD}_{\mathrm{ref}} = 1.0$~dB, $\mathrm{GD}_{\mathrm{ref}} = 0.08$~ms, $\mathrm{ITD}_{\mathrm{ref}} = 0.03$~ms. The weights are $W_{\mathrm{LSD}} = 0.20$, $W_{\mathrm{ILD}} = 0.25$, $W_{\mathrm{GD}} = 0.35$, $W_{\mathrm{ITD}} = 0.20$, summing to 1.0. The group delay component receives the highest weight (0.35) based on the hypothesis that phase-sensitive metrics are the most critical for detecting the distortions that LSD misses. The normalization by JND-based references ensures that each component contributes to the composite score in proportion to its perceptual significance: a value of 1.0 for any component indicates that the error is at the threshold of detectability.
+The normalization references are derived from established psychoacoustic Just Noticeable Difference (JND) thresholds reported in the literature:
+
+\begin{itemize}
+  \item $\mathrm{LSD}_{\mathrm{ref}} = 2.0$~dB: This value reflects the upper bound of the ``perceptually insignificant'' SD range widely used in the HRTF literature. Andreopoulou and Katz \cite{andreopoulou2022} note that SD values below 1--2~dB have traditionally been considered acceptable; we adopt 2.0~dB as the reference to ensure that only distortions exceeding this established threshold contribute substantially to the composite score.
+  \item $\mathrm{ILD}_{\mathrm{ref}} = 1.0$~dB: The JND for ILD is approximately 0.5--1.5~dB depending on frequency and stimulus type \cite{blauert1997}. We adopt 1.0~dB as a representative mid-range value, consistent with the ILD JND reported by Blauert for broadband stimuli.
+  \item $\mathrm{GD}_{\mathrm{ref}} = 0.08$~ms: Group delay JNDs are frequency-dependent and range from approximately 0.05~ms at high frequencies to 0.5~ms at low frequencies \cite{blauert1997}. The value of 0.08~ms (approximately 3.8~samples at 48~kHz) represents the lower end of this range, reflecting the high perceptual sensitivity to temporal fine-structure in the 4--12~kHz pinna notch region that is most critical for elevation perception.
+  \item $\mathrm{ITD}_{\mathrm{ref}} = 0.03$~ms: The ITD JND is approximately 10--30~$\mu$s for broadband stimuli presented at the midline \cite{blauert1997}. We adopt 0.03~ms (30~$\mu$s) as the upper end of this range, corresponding to approximately 1.4~samples at 48~kHz.
+\end{itemize}
+
+The weights are $W_{\mathrm{LSD}} = 0.20$, $W_{\mathrm{ILD}} = 0.25$, $W_{\mathrm{GD}} = 0.35$, $W_{\mathrm{ITD}} = 0.20$, summing to 1.0. The rationale for the weight assignment follows a principled hierarchy based on two criteria: (1)~the \textit{diagnostic gap}---how much information the metric provides beyond what LSD already captures---and (2)~the \textit{perceptual salience} of the cue class for spatial hearing:
+
+\begin{itemize}
+  \item \textbf{Group delay ($W_{\mathrm{GD}} = 0.35$, highest weight):} This component receives the highest weight because it is the \textit{only} metric in the framework that directly measures phase-domain distortion---the precise failure mode identified by Andreopoulou and Katz \cite{andreopoulou2022}. Since the central hypothesis of this thesis is that phase blindness is the primary failure of LSD, the phase-sensitive component must be weighted most heavily to ensure the CPM detects what LSD cannot.
+  \item \textbf{ILD error ($W_{\mathrm{ILD}} = 0.25$):} ILD is the dominant lateralization cue above approximately 1.5~kHz \cite{blauert1997} and is inherently binaural---it measures the \textit{difference between ears} rather than the absolute error at each ear. This binaural perspective is absent from LSD, making ILD error the second most diagnostic component.
+  \item \textbf{LSD ($W_{\mathrm{LSD}} = 0.20$) and ITD error ($W_{\mathrm{ITD}} = 0.20$):} LSD is included as the baseline magnitude-domain component to ensure the CPM remains sensitive to spectral distortions that \textit{are} captured by traditional metrics. ITD error, while perceptually critical for low-frequency azimuthal localization, is assigned equal weight to LSD because ITD is typically well-preserved by most HRTF processing pipelines (as confirmed by our results in Table~\ref{tab:results}).
+\end{itemize}
+
+It is important to note that these weights are heuristic, informed by psychoacoustic principles rather than optimized against subjective data. Future work (Section~5.2) describes how these weights can be empirically optimized via regression against subjective MUSHRA scores once such data become available. The normalization by JND-based references ensures that each component contributes to the composite score in proportion to its perceptual significance: a value of 1.0 for any normalized component indicates that the error is at the threshold of detectability.
 
 \subsection{Evaluation Strategy}
 
@@ -590,7 +609,7 @@ The LSD vs.\ CPM relationship is analyzed to identify conditions where the two m
 \newpage
 \section{Implementation, Results, and Discussion}
 
-This chapter presents the experimental implementation, reports the quantitative results, and discusses their implications for HRTF evaluation methodology. All code, data, and figures are available in the accompanying repository.
+This chapter presents the experimental implementation, reports the quantitative results, and discusses their implications for HRTF evaluation methodology. All code, data, and figures are available in the accompanying repository\footnote{Source code available at: \url{https://github.com/Aper-mesa/Raytraced-Audio}}.
 
 \subsection{Experimental Setup}
 
@@ -674,6 +693,27 @@ The central finding is immediately apparent: \textbf{the minimum-phase condition
 \label{fig:group_delay}
 \end{figure}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig4_5_individual_metrics.png}
+\caption{Individual metric responses across all five degradation conditions (error bars represent $\pm 1$ standard deviation across 20 subjects). Each panel isolates one metric, revealing the distinct sensitivity profiles: LSD responds strongly to magnitude smoothing but is near-zero for minimum-phase; conversely, group delay error peaks for minimum-phase while remaining low for smoothing and quantization conditions.}
+\label{fig:individual_metrics}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/fig4_6_radar_chart.png}
+\caption{Radar chart of normalised metric profiles per degradation condition. Each axis represents one metric normalised to [0,\,1]. The minimum-phase condition (blue) shows a dramatically different profile from all other conditions, extending along the GD Error and ITD Error axes while collapsing on the LSD and ILD Error axes. This visualisation highlights the complementary nature of the four metrics and the necessity of a composite approach.}
+\label{fig:radar_chart}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.90\textwidth]{figures/fig4_7_cpm_breakdown.png}
+\caption{Stacked bar chart showing the contribution of each CPM component to the total composite score. For the minimum-phase condition, the group delay component (green) accounts for over 95\% of the total CPM, while for the smoothing and quantization conditions, the score is distributed across LSD and ILD components. This decomposition reveals precisely which perceptual dimensions are degraded by each processing technique.}
+\label{fig:cpm_breakdown}
+\end{figure}
+
 \subsection{Discussion}
 
 \textbf{Validation of the Andreopoulou \& Katz Hypothesis.}
@@ -682,11 +722,16 @@ The results provide direct, quantitative support for the hypothesis advanced by 
 \textbf{Group Delay Error as the Key Discriminator.}
 The group delay error is the metric component responsible for detecting the minimum-phase distortion. At 2.335~ms, it is an order of magnitude larger than any other condition's GD error (the next highest is 1/1-octave smoothing at 0.209~ms). As shown in Figure~\ref{fig:spectral_comparison}, the magnitude spectra of the original and minimum-phase HRTFs are nearly identical, explaining the near-zero LSD. However, Figure~\ref{fig:group_delay} reveals a massive divergence in group delay, particularly in the 4--12~kHz pinna notch region. This confirms the theoretical expectation: minimum-phase reconstruction preserves the magnitude spectrum exactly (by construction) but replaces the original excess phase with a synthetic minimum-phase response, destroying the group delay structure. The group delay metric, being derived from the phase spectrum, is sensitive to exactly this type of distortion. The large GD error also propagates through the CPM via the highest weight ($W_{\mathrm{GD}} = 0.35$) and the smallest normalization reference ($\mathrm{GD}_{\mathrm{ref}} = 0.08$~ms), amplifying its contribution to the composite score.
 
+The individual metric bar charts (Figure~\ref{fig:individual_metrics}) provide a detailed view of each metric's absolute response across all conditions, revealing the complementary sensitivity profiles. The radar chart (Figure~\ref{fig:radar_chart}) further illustrates this complementarity: the minimum-phase condition exhibits a dramatically different profile from all other conditions, extending along the GD Error and ITD Error axes while collapsing on the LSD and ILD Error axes. The stacked CPM breakdown (Figure~\ref{fig:cpm_breakdown}) makes explicit the dominance of the group delay component in the minimum-phase condition's composite score, accounting for over 95\% of the total CPM value.
+
 \textbf{Magnitude-Domain Metrics Behave as Expected.}
-For the four non-minimum-phase conditions, LSD and ILD error behave as expected: they increase monotonically with degradation severity (12-bit $<$ 8-bit $<$ 1/3-oct $<$ 1/1-oct). The CPM also increases monotonically for these conditions. This confirms that the proposed composite metric does not sacrifice sensitivity to magnitude-domain distortions in order to detect phase-domain distortions---it captures both.
+For the four non-minimum-phase conditions, LSD and ILD error behave as expected: they increase monotonically with degradation severity (12-bit $<$ 8-bit $<$ 1/3-oct $<$ 1/1-oct). The CPM also increases monotonically for these conditions. This confirms that the proposed composite metric does not sacrifice sensitivity to magnitude-domain distortions in order to detect phase-domain distortions---it captures both. As visible in the CPM breakdown (Figure~\ref{fig:cpm_breakdown}), the smoothing conditions show a balanced contribution from both LSD and ILD components, reflecting the fact that magnitude smoothing affects both monaural spectra and binaural level differences.
 
 \textbf{ITD Error Analysis.}
 The minimum-phase condition exhibits a surprisingly high ITD error (0.579~ms) despite the explicit re-insertion of ITD via onset detection. This suggests that the onset-detection method (first sample exceeding 1\% of peak amplitude) does not perfectly recover the original ITD, particularly for spatial positions where the HRIR onset is gradual. The smoothing and quantization conditions, which do not modify the impulse response timing, show near-zero ITD errors (0.003--0.023~ms), as expected.
+
+\textbf{Connection to the Broader Metric Landscape.}
+The findings of this study align with and extend several concurrent research efforts. Doma et al.\ \cite{doma2023} demonstrated that traditional spectral distance metrics are highly correlated with one another and provide limited unique information, concluding that a ``higher-level metric'' or combination of descriptors is needed. The CPM framework directly addresses this recommendation by combining four metrics with demonstrably orthogonal sensitivity profiles (Figure~\ref{fig:radar_chart}). The PESD metric proposed by Armstrong et al.\ \cite{armstrong2024} represents a complementary approach: while PESD enhances the spectral distance metric itself through perceptual weighting, the CPM framework instead augments magnitude-domain metrics with fundamentally different measurement domains (phase, binaural cues). A recent comprehensive survey by Fantini et al.\ \cite{fantini2025} on machine learning techniques for HRTF individualization confirms that MSE and LSD remain the dominant loss functions in deep learning-based HRTF generation, underscoring the practical urgency of developing better objective metrics that could serve as replacement loss functions. Similarly, the QASTAnet metric proposed by Weckbecker et al.\ \cite{weckbecker2025} at ICASSP~2025 uses a DNN-based approach to predict spatial audio quality, demonstrating the growing recognition in the community that simple signal-level metrics are insufficient. The BINAQUAL metric \cite{panah2025} addresses binaural localization fidelity through a Neuro-SIM approach, validating the principle---shared with the CPM---that binaural cue preservation must be explicitly evaluated rather than inferred from monaural spectral comparisons.
 
 \textbf{Limitations.}
 Several limitations must be acknowledged. First, this study is purely objective: no subjective listening tests were conducted, so the CPM's correlation with human perception remains unvalidated. The claim that CPM is a ``better'' metric than LSD rests on the theoretical argument that phase-sensitive metrics should correlate better with perception, not on empirical subjective data. Second, the CPM weights ($W_{\mathrm{LSD}}, W_{\mathrm{ILD}}, W_{\mathrm{GD}}, W_{\mathrm{ITD}}$) and normalization references are heuristic, informed by psychoacoustic JND values but not optimized against subjective scores. Third, only 20 of the 51 available subjects were used; expanding to the full database would improve statistical robustness. Fourth, the degradation conditions, while carefully chosen, do not exhaust the space of possible HRTF distortions---notably absent are spherical harmonic truncation, IIR filter modeling, and non-linear processing artifacts.

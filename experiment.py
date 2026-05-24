@@ -458,6 +458,127 @@ def plot_group_delay_comparison(all_hrirs, freqs, freq_mask, out_dir):
     print(f"Saved {path}")
     plt.close()
 
+def plot_individual_metrics(df, out_dir):
+    """Figure 4.5: Individual metric bar charts showing absolute values per condition."""
+    metrics = [
+        ("LSD_mean", "LSD_std", "LSD (dB)", "#4477AA"),
+        ("ILD_err_mean", "ILD_err_std", "ILD Error (dB)", "#EE6677"),
+        ("GD_err_mean", "GD_err_std", "Group Delay Error (ms)", "#228833"),
+        ("ITD_err_mean", "ITD_err_std", "ITD Error (ms)", "#CCBB44"),
+    ]
+    conditions = df["Condition"].tolist()
+    x = np.arange(len(conditions))
+
+    fig, axes = plt.subplots(2, 2, figsize=(12, 8))
+    axes = axes.ravel()
+
+    for idx, (mean_col, std_col, ylabel, color) in enumerate(metrics):
+        ax = axes[idx]
+        vals = df[mean_col].values.astype(float)
+        errs = df[std_col].values.astype(float)
+        bars = ax.bar(x, vals, yerr=errs, capsize=4, color=color, alpha=0.85,
+                       edgecolor="black", linewidth=0.5)
+        ax.set_xticks(x)
+        ax.set_xticklabels(conditions, rotation=15, ha="right", fontsize=8)
+        ax.set_ylabel(ylabel, fontsize=9)
+        ax.set_title(ylabel, fontsize=10, fontweight="bold")
+        ax.grid(True, alpha=0.3, axis="y")
+        for i, v in enumerate(vals):
+            ax.text(i, v + errs[i] + 0.02 * max(vals), f"{v:.3f}",
+                    ha="center", va="bottom", fontsize=7)
+
+    fig.suptitle("Figure 4.5 — Individual Metric Responses Across Degradation Conditions\n"
+                 "(RIEC HRTF Database, n = 20 subjects, error bars = 1 SD)",
+                 fontsize=11, fontweight="bold")
+    plt.tight_layout(rect=[0, 0, 1, 0.93])
+    path = os.path.join(out_dir, "fig4_5_individual_metrics.pdf")
+    plt.savefig(path, dpi=300)
+    plt.savefig(path.replace(".pdf", ".png"), dpi=150)
+    print(f"Saved {path}")
+    plt.close()
+
+
+def plot_radar_chart(df, out_dir):
+    """Figure 4.6: Radar chart showing metric profiles per condition."""
+    categories = ["LSD", "ILD Error", "GD Error", "ITD Error"]
+    metric_cols = ["LSD_mean", "ILD_err_mean", "GD_err_mean", "ITD_err_mean"]
+    conditions = df["Condition"].tolist()
+
+    # Normalise each metric to [0, 1] for radar
+    norm_data = []
+    for col in metric_cols:
+        v = df[col].values.astype(float)
+        mx = v.max() + 1e-9
+        norm_data.append(v / mx)
+    norm_data = np.array(norm_data).T  # (n_cond, 4)
+
+    angles = np.linspace(0, 2 * np.pi, len(categories), endpoint=False).tolist()
+    angles += angles[:1]
+
+    colors = ["#4477AA", "#EE6677", "#228833", "#CCBB44", "#AA3377"]
+    fig, ax = plt.subplots(figsize=(7, 7), subplot_kw=dict(polar=True))
+
+    for i, cond in enumerate(conditions):
+        values = norm_data[i].tolist()
+        values += values[:1]
+        ax.plot(angles, values, 'o-', linewidth=1.5, label=cond,
+                color=colors[i % len(colors)])
+        ax.fill(angles, values, alpha=0.1, color=colors[i % len(colors)])
+
+    ax.set_xticks(angles[:-1])
+    ax.set_xticklabels(categories, fontsize=9)
+    ax.set_ylim(0, 1.1)
+    ax.set_title("Figure 4.6 — Metric Profiles: Radar Chart\n"
+                 "(Normalised to [0, 1] per metric)", fontsize=11,
+                 fontweight="bold", pad=20)
+    ax.legend(loc="upper right", bbox_to_anchor=(1.3, 1.1), fontsize=8)
+    plt.tight_layout()
+    path = os.path.join(out_dir, "fig4_6_radar_chart.pdf")
+    plt.savefig(path, dpi=300)
+    plt.savefig(path.replace(".pdf", ".png"), dpi=150)
+    print(f"Saved {path}")
+    plt.close()
+
+
+def plot_cpm_breakdown(df, out_dir):
+    """Figure 4.7: Stacked bar chart showing CPM component contributions."""
+    conditions = df["Condition"].tolist()
+    x = np.arange(len(conditions))
+
+    lsd_ref, ild_ref, gd_ref, itd_ref = 2.0, 1.0, 0.08, 0.03
+    lsd_contrib = W_LSD * df["LSD_mean"].values / lsd_ref
+    ild_contrib = W_ILD * df["ILD_err_mean"].values / ild_ref
+    gd_contrib  = W_GD  * df["GD_err_mean"].values / gd_ref
+    itd_contrib = W_ITD * df["ITD_err_mean"].values / itd_ref
+
+    fig, ax = plt.subplots(figsize=(9, 5))
+    ax.bar(x, lsd_contrib, label="LSD component", color="#4477AA")
+    ax.bar(x, ild_contrib, bottom=lsd_contrib, label="ILD component", color="#EE6677")
+    ax.bar(x, gd_contrib,  bottom=lsd_contrib + ild_contrib, label="GD component", color="#228833")
+    ax.bar(x, itd_contrib, bottom=lsd_contrib + ild_contrib + gd_contrib,
+           label="ITD component", color="#CCBB44")
+
+    ax.set_xticks(x)
+    ax.set_xticklabels(conditions, rotation=12, ha="right", fontsize=9)
+    ax.set_ylabel("CPM Score (component contributions)")
+    ax.set_title("Figure 4.7 — CPM Component Breakdown by Degradation Condition\n"
+                 "Group delay dominates the Min-Phase condition's score",
+                 fontsize=10, fontweight="bold")
+    ax.legend(fontsize=8)
+    ax.grid(True, alpha=0.3, axis="y")
+
+    for i in range(len(conditions)):
+        total = lsd_contrib[i] + ild_contrib[i] + gd_contrib[i] + itd_contrib[i]
+        ax.text(i, total + 0.2, f"{total:.2f}", ha="center", va="bottom", fontsize=8,
+                fontweight="bold")
+
+    plt.tight_layout()
+    path = os.path.join(out_dir, "fig4_7_cpm_breakdown.pdf")
+    plt.savefig(path, dpi=300)
+    plt.savefig(path.replace(".pdf", ".png"), dpi=150)
+    print(f"Saved {path}")
+    plt.close()
+
 
 # ─── Entry point ──────────────────────────────────────────────────────────────
 if __name__ == "__main__":
@@ -468,6 +589,9 @@ if __name__ == "__main__":
     plot_lsd_vs_cpm(df, OUT_DIR)
     plot_spectral_comparison(all_hrirs, freqs, freq_mask, OUT_DIR)
     plot_group_delay_comparison(all_hrirs, freqs, freq_mask, OUT_DIR)
+    plot_individual_metrics(df, OUT_DIR)
+    plot_radar_chart(df, OUT_DIR)
+    plot_cpm_breakdown(df, OUT_DIR)
 
     print("\n=== Final Results Table ===")
     print(df.to_string(index=False))

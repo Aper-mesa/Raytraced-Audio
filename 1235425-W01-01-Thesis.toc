@@ -1,7 +1,7 @@
 \contentsline {section}{Abstract}{iii}{section*.1}%
 \contentsline {section}{Acknowledgements}{iv}{section*.2}%
-\contentsline {section}{Definition of Acronyms}{viii}{section*.6}%
-\contentsline {section}{Definition of Notations}{ix}{section*.7}%
+\contentsline {section}{Definition of Acronyms}{ix}{section*.6}%
+\contentsline {section}{Definition of Notations}{x}{section*.7}%
 \contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Overview of Spatial Audio and HRTF}{1}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Motivation}{2}{subsection.1.2}%
@@ -22,14 +22,14 @@
 \contentsline {subsection}{\numberline {3.1}Dataset}{16}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Degradation Conditions}{17}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Proposed Metrics}{18}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Evaluation Strategy}{20}{subsection.3.4}%
-\contentsline {section}{\numberline {4}Implementation, Results, and Discussion}{21}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Experimental Setup}{21}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Degradation Conditions}{21}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Metrics Implementation}{22}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Results}{22}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Figures}{23}{subsection.4.5}%
-\contentsline {subsection}{\numberline {4.6}Discussion}{23}{subsection.4.6}%
-\contentsline {section}{\numberline {5}Conclusion and Future Work}{28}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Conclusion}{28}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Future Work}{28}{subsection.5.2}%
+\contentsline {subsection}{\numberline {3.4}Evaluation Strategy}{21}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Implementation, Results, and Discussion}{23}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Experimental Setup}{23}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Degradation Conditions}{23}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Metrics Implementation}{24}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Results}{24}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Figures}{25}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Discussion}{25}{subsection.4.6}%
+\contentsline {section}{\numberline {5}Conclusion and Future Work}{33}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Conclusion}{33}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Future Work}{33}{subsection.5.2}%
